@@ -5,31 +5,31 @@ const steps = [
     number: "01",
     icon: MessageSquare,
     title: "Requirement Discussion",
-    description: "We start by understanding your needs and goals.",
+    description: "Understanding your needs",
   },
   {
     number: "02",
     icon: FileText,
     title: "Planning & Proposal",
-    description: "Detailed project plan with timeline and cost estimates.",
+    description: "Detailed project roadmap",
   },
   {
     number: "03",
     icon: Code,
     title: "Development",
-    description: "Building your solution with regular progress updates.",
+    description: "Building with precision",
   },
   {
     number: "04",
     icon: TestTube,
     title: "Testing",
-    description: "Rigorous testing to ensure quality and performance.",
+    description: "Quality assurance",
   },
   {
     number: "05",
     icon: Rocket,
     title: "Delivery & Support",
-    description: "Launch and ongoing support for your success.",
+    description: "Launch and beyond",
   },
 ];
 
@@ -40,7 +40,7 @@ export const ProcessSection = () => {
         {/* Section Header */}
         <div className="mb-12 text-center">
           <h2 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl">
-            Our Process
+            Our <span className="text-gradient">Process</span>
           </h2>
           <p className="mx-auto max-w-2xl text-muted-foreground">
             A streamlined approach to bring your ideas to life
@@ -48,35 +48,39 @@ export const ProcessSection = () => {
         </div>
 
         {/* Process Steps */}
-        <div className="relative">
-          {/* Connecting Line (Desktop) */}
-          <div className="absolute left-0 right-0 top-16 hidden h-0.5 bg-gradient-to-r from-transparent via-border to-transparent lg:block" />
-
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
-            {steps.map((step, index) => (
-              <div
-                key={step.number}
-                className="relative text-center"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                {/* Step Number & Icon */}
-                <div className="relative mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-border bg-card">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+          {steps.map((step, index) => (
+            <div
+              key={step.number}
+              className="group relative text-center"
+            >
+              {/* Step Card */}
+              <div className="rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/30 hover:bg-secondary/30">
+                {/* Number Badge */}
+                <span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-sm font-bold text-white">
+                  {step.number}
+                </span>
+                
+                {/* Icon */}
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary">
                   <step.icon className="h-6 w-6 text-primary" />
-                  <span className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-gradient-cta text-xs font-bold text-primary-foreground">
-                    {step.number}
-                  </span>
                 </div>
 
                 {/* Content */}
-                <h3 className="mb-2 font-semibold text-foreground">
+                <h3 className="mb-1 font-semibold text-foreground">
                   {step.title}
                 </h3>
                 <p className="text-sm text-muted-foreground">
                   {step.description}
                 </p>
               </div>
-            ))}
-          </div>
+
+              {/* Connector (hidden on last item and mobile) */}
+              {index < steps.length - 1 && (
+                <div className="absolute -right-3 top-1/2 hidden h-0.5 w-6 bg-border lg:block" />
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </section>

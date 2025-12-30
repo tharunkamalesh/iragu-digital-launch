@@ -6,54 +6,59 @@
 
 @layer base {
   :root {
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
+    --background: 20 15% 8%;
+    --foreground: 30 20% 98%;
 
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 98%;
+    --card: 20 15% 12%;
+    --card-foreground: 30 20% 98%;
 
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 20 15% 12%;
+    --popover-foreground: 30 20% 98%;
 
-    --primary: 217 91% 60%;
-    --primary-foreground: 222 47% 6%;
+    --primary: 30 50% 45%;
+    --primary-foreground: 30 20% 98%;
 
-    --secondary: 222 47% 12%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 20 15% 16%;
+    --secondary-foreground: 30 20% 98%;
 
-    --muted: 222 47% 15%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 20 15% 18%;
+    --muted-foreground: 30 10% 60%;
 
-    --accent: 199 89% 48%;
-    --accent-foreground: 222 47% 6%;
+    --accent: 35 60% 55%;
+    --accent-foreground: 20 15% 8%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 30 20% 98%;
 
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 217 91% 60%;
+    --border: 20 15% 20%;
+    --input: 20 15% 16%;
+    --ring: 30 50% 45%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    /* Custom tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(222 47% 6%) 0%, hsl(217 50% 12%) 50%, hsl(222 47% 8%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(222 47% 10%) 0%, hsl(222 47% 7%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(199 89% 48%) 100%);
-    --gradient-glow: radial-gradient(ellipse at center, hsl(217 91% 60% / 0.15) 0%, transparent 70%);
+    /* Custom Coffee Brown Tokens */
+    --coffee-dark: 20 20% 12%;
+    --coffee-medium: 30 45% 35%;
+    --coffee-light: 35 55% 50%;
+    --coffee-cream: 35 40% 90%;
     
-    --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.3);
-    --shadow-card: 0 4px 24px hsl(222 47% 3% / 0.5);
-    --shadow-elevated: 0 8px 32px hsl(222 47% 3% / 0.6);
+    --gradient-hero: linear-gradient(135deg, hsl(20 15% 8%) 0%, hsl(20 18% 12%) 50%, hsl(20 15% 10%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(20 15% 14%) 0%, hsl(20 15% 10%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(30 50% 45%) 0%, hsl(35 60% 55%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(30 50% 45% / 0.15) 0%, transparent 70%);
+    
+    --shadow-glow: 0 0 40px hsl(30 50% 45% / 0.3);
+    --shadow-card: 0 4px 24px hsl(20 15% 5% / 0.5);
+    --shadow-elevated: 0 8px 32px hsl(20 15% 5% / 0.6);
 
-    --sidebar-background: 222 47% 8%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 222 47% 6%;
-    --sidebar-accent: 222 47% 15%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 217 33% 17%;
-    --sidebar-ring: 217 91% 60%;
+    --sidebar-background: 20 15% 10%;
+    --sidebar-foreground: 30 20% 98%;
+    --sidebar-primary: 30 50% 45%;
+    --sidebar-primary-foreground: 30 20% 98%;
+    --sidebar-accent: 20 15% 18%;
+    --sidebar-accent-foreground: 30 20% 98%;
+    --sidebar-border: 20 15% 20%;
+    --sidebar-ring: 30 50% 45%;
   }
 }
 
@@ -100,26 +105,6 @@
   .shadow-elevated {
     box-shadow: var(--shadow-elevated);
   }
-
-  .glow-effect {
-    position: relative;
-  }
-
-  .glow-effect::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    background: var(--gradient-cta);
-    border-radius: inherit;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-    filter: blur(12px);
-  }
-
-  .glow-effect:hover::before {
-    opacity: 0.5;
-  }
 }
 
 @layer components {
@@ -142,5 +127,21 @@
 
   .container-width {
     @apply mx-auto max-w-7xl;
+  }
+
+  .glass-card {
+    @apply rounded-2xl border border-border bg-card/80 backdrop-blur-sm;
+  }
+
+  .icon-box {
+    @apply flex h-12 w-12 items-center justify-center rounded-xl;
+  }
+
+  .icon-box-primary {
+    @apply icon-box bg-primary/20 text-primary;
+  }
+
+  .icon-box-accent {
+    @apply icon-box bg-accent/20 text-accent;
   }
 }
