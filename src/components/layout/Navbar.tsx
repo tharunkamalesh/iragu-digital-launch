@@ -1,54 +1,53 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: "#home" },
+  { name: "Services", href: "#services" },
 ];
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
 
-  const isActive = (href: string) => location.pathname === href;
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsOpen(false);
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <nav className="container-width section-padding !py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
+          <button onClick={() => scrollToSection("#home")} className="flex items-center gap-2">
             <span className="text-2xl font-bold tracking-tight">
               <span className="text-gradient">IRAGU</span>
             </span>
-          </Link>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-8 md:flex">
             {navLinks.map((link) => (
-              <Link
+              <button
                 key={link.name}
-                to={link.href}
-                className={`nav-link text-sm font-medium ${
-                  isActive(link.href) ? "text-foreground" : ""
-                }`}
+                onClick={() => scrollToSection(link.href)}
+                className="nav-link text-sm font-medium"
               >
                 {link.name}
-              </Link>
+              </button>
             ))}
           </div>
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Link to="/contact">
-              <Button variant="gradient" size="default">
-                Get Free Consultation
-              </Button>
-            </Link>
+            <Button variant="gradient" size="default" onClick={() => scrollToSection("#contact")}>
+              Get Free Consultation
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -69,24 +68,17 @@ export const Navbar = () => {
         {isOpen && (
           <div className="mt-4 flex flex-col gap-4 border-t border-border pt-4 md:hidden">
             {navLinks.map((link) => (
-              <Link
+              <button
                 key={link.name}
-                to={link.href}
-                onClick={() => setIsOpen(false)}
-                className={`text-base font-medium transition-colors ${
-                  isActive(link.href)
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
+                onClick={() => scrollToSection(link.href)}
+                className="text-left text-base font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
                 {link.name}
-              </Link>
+              </button>
             ))}
-            <Link to="/contact" onClick={() => setIsOpen(false)}>
-              <Button variant="gradient" size="default" className="w-full">
-                Get Free Consultation
-              </Button>
-            </Link>
+            <Button variant="gradient" size="default" className="w-full" onClick={() => scrollToSection("#contact")}>
+              Get Free Consultation
+            </Button>
           </div>
         )}
       </nav>
