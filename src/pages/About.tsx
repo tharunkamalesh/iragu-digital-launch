@@ -1,5 +1,12 @@
 import { Layout } from "@/components/layout/Layout";
-import { Target, Lightbulb, Users } from "lucide-react";
+import { Target, Lightbulb, Users, Heart, Award, Sparkles, Shield } from "lucide-react";
+
+const values = [
+  { icon: Heart, title: "Integrity", desc: "Honest and transparent" },
+  { icon: Award, title: "Quality", desc: "Excellence in every project" },
+  { icon: Sparkles, title: "Innovation", desc: "Embracing new ideas" },
+  { icon: Shield, title: "Partnership", desc: "Lasting relationships" },
+];
 
 const About = () => {
   return (
@@ -22,9 +29,9 @@ const About = () => {
       <section className="section-padding bg-background">
         <div className="container-width">
           <div className="mx-auto max-w-4xl">
-            {/* Main About */}
-            <div className="mb-16">
-              <h2 className="mb-6 text-2xl font-bold text-foreground sm:text-3xl">
+            {/* Main About Card */}
+            <div className="mb-8 rounded-2xl border border-border bg-card p-6 md:p-8">
+              <h2 className="mb-4 text-2xl font-bold text-foreground">
                 Who We Are
               </h2>
               <p className="mb-4 text-muted-foreground">
@@ -36,12 +43,12 @@ const About = () => {
             </div>
 
             {/* Mission & Vision */}
-            <div className="mb-16 grid gap-6 md:grid-cols-2">
-              <div className="rounded-xl border border-border bg-gradient-card p-6 shadow-card">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                  <Target className="h-6 w-6 text-primary" />
+            <div className="mb-8 grid gap-4 md:grid-cols-2">
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
+                  <Target className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="mb-3 text-xl font-semibold text-foreground">
+                <h3 className="mb-2 text-xl font-semibold text-foreground">
                   Our Mission
                 </h3>
                 <p className="text-muted-foreground">
@@ -49,11 +56,11 @@ const About = () => {
                 </p>
               </div>
 
-              <div className="rounded-xl border border-border bg-gradient-card p-6 shadow-card">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10">
-                  <Lightbulb className="h-6 w-6 text-accent" />
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-primary">
+                  <Lightbulb className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="mb-3 text-xl font-semibold text-foreground">
+                <h3 className="mb-2 text-xl font-semibold text-foreground">
                   Our Vision
                 </h3>
                 <p className="text-muted-foreground">
@@ -63,20 +70,21 @@ const About = () => {
             </div>
 
             {/* Values */}
-            <div className="mb-16">
-              <h2 className="mb-6 text-2xl font-bold text-foreground sm:text-3xl">
-                Our Values
-              </h2>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {[
-                  { title: "Integrity", desc: "Honest and transparent in all dealings" },
-                  { title: "Quality", desc: "Commitment to excellence in every project" },
-                  { title: "Innovation", desc: "Embracing new technologies and ideas" },
-                  { title: "Partnership", desc: "Building lasting client relationships" },
-                ].map((value) => (
-                  <div key={value.title} className="rounded-lg border border-border bg-card p-4 text-center">
-                    <h4 className="mb-1 font-semibold text-foreground">{value.title}</h4>
-                    <p className="text-sm text-muted-foreground">{value.desc}</p>
+            <div className="mb-8">
+              <h2 className="mb-4 text-xl font-bold text-foreground">Our Values</h2>
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                {values.map((value) => (
+                  <div
+                    key={value.title}
+                    className="flex items-center gap-3 rounded-xl border border-border bg-card p-4"
+                  >
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                      <value.icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground">{value.title}</h4>
+                      <p className="text-xs text-muted-foreground">{value.desc}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -84,13 +92,11 @@ const About = () => {
 
             {/* Founder Section */}
             <div>
-              <h2 className="mb-6 text-2xl font-bold text-foreground sm:text-3xl">
-                Meet the Founder
-              </h2>
-              <div className="flex flex-col items-center gap-6 rounded-xl border border-border bg-gradient-card p-8 shadow-card sm:flex-row sm:items-start">
-                {/* Avatar Placeholder */}
-                <div className="flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full bg-gradient-cta">
-                  <Users className="h-10 w-10 text-primary-foreground" />
+              <h2 className="mb-4 text-xl font-bold text-foreground">Meet the Founder</h2>
+              <div className="flex flex-col items-center gap-6 rounded-2xl border border-border bg-gradient-card p-8 sm:flex-row sm:items-start">
+                {/* Avatar */}
+                <div className="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent">
+                  <Users className="h-8 w-8 text-white" />
                 </div>
 
                 {/* Content */}

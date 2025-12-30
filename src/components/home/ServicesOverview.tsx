@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Globe, Layers, Cog, Cloud, ArrowRight } from "lucide-react";
+import { Globe, Layers, Cog, Cloud, ArrowRight, ChevronRight } from "lucide-react";
 
 const services = [
   {
@@ -29,51 +29,81 @@ export const ServicesOverview = () => {
     <section className="section-padding bg-background">
       <div className="container-width">
         {/* Section Header */}
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl">
-            Our Services
+        <div className="mb-12">
+          <h2 className="mb-2 text-3xl font-bold text-foreground sm:text-4xl">
+            Transforming businesses{" "}
+            <span className="text-gradient">with cutting-edge IT.</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-muted-foreground">
-            Comprehensive digital solutions to help your business thrive in the modern world
+          <p className="max-w-2xl text-muted-foreground">
+            Explore our comprehensive suite of technology solutions designed to scale your operations.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((service, index) => (
-            <div
+        {/* Featured Card */}
+        <div className="mb-8">
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-card border border-border p-8 md:p-10">
+            {/* Tech Background Pattern */}
+            <div className="absolute inset-0 opacity-20">
+              <div 
+                className="absolute inset-0"
+                style={{
+                  backgroundImage: `radial-gradient(circle at 20% 80%, hsl(var(--primary) / 0.3) 0%, transparent 50%),
+                                   radial-gradient(circle at 80% 20%, hsl(var(--accent) / 0.2) 0%, transparent 50%)`,
+                }}
+              />
+            </div>
+            
+            <div className="relative">
+              <span className="mb-4 inline-block rounded-md bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
+                FEATURED
+              </span>
+              <h3 className="mb-3 text-2xl font-bold text-foreground md:text-3xl">
+                Custom Software Development
+              </h3>
+              <p className="mb-6 max-w-xl text-muted-foreground">
+                Tailored, scalable engineering solutions built specifically to address your unique business challenges and drive growth.
+              </p>
+              <Link
+                to="/services"
+                className="inline-flex items-center gap-2 rounded-full bg-secondary px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+              >
+                Read More
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* All Services Header */}
+        <h3 className="mb-4 text-lg font-semibold text-foreground">All Services</h3>
+
+        {/* Services List */}
+        <div className="space-y-3">
+          {services.map((service) => (
+            <Link
               key={service.title}
-              className="group relative overflow-hidden rounded-xl border border-border bg-gradient-card p-6 shadow-card transition-all duration-300 hover:border-primary/50 hover:shadow-elevated"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              to="/services"
+              className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-4 transition-all duration-300 hover:border-primary/30 hover:bg-secondary/50"
             >
               {/* Icon */}
-              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                <service.icon className="h-6 w-6 text-primary" />
+              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10">
+                <service.icon className="h-5 w-5 text-primary" />
               </div>
 
               {/* Content */}
-              <h3 className="mb-2 text-lg font-semibold text-foreground">
-                {service.title}
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                {service.description}
-              </p>
+              <div className="flex-1 min-w-0">
+                <h4 className="font-semibold text-foreground">
+                  {service.title}
+                </h4>
+                <p className="text-sm text-muted-foreground truncate">
+                  {service.description}
+                </p>
+              </div>
 
-              {/* Hover Effect */}
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary/5 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-            </div>
+              {/* Arrow */}
+              <ChevronRight className="h-5 w-5 flex-shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" />
+            </Link>
           ))}
-        </div>
-
-        {/* View All Link */}
-        <div className="mt-10 text-center">
-          <Link
-            to="/services"
-            className="inline-flex items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-accent"
-          >
-            View All Services
-            <ArrowRight className="h-4 w-4" />
-          </Link>
         </div>
       </div>
     </section>

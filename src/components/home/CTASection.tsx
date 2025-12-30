@@ -11,7 +11,7 @@ export const CTASection = () => {
       </div>
 
       <div className="container-width relative">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-3xl rounded-3xl border border-border bg-background/50 p-8 text-center backdrop-blur-sm md:p-12">
           {/* Heading */}
           <h2 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl">
             Ready to Start Your Digital Journey with{" "}
@@ -24,7 +24,7 @@ export const CTASection = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link to="/contact">
-              <Button variant="gradient" size="lg" className="group">
+              <Button variant="gradient" size="lg" className="group min-w-[180px]">
                 Contact Us
                 <ArrowRight className="transition-transform group-hover:translate-x-1" />
               </Button>
@@ -34,7 +34,7 @@ export const CTASection = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="whatsapp" size="lg">
+              <Button variant="whatsapp" size="lg" className="min-w-[180px]">
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp Now
               </Button>

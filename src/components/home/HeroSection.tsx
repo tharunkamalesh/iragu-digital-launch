@@ -4,28 +4,27 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 
 export const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-hero">
-      {/* Background Elements */}
+    <section className="relative overflow-hidden bg-gradient-hero min-h-[90vh] flex items-center">
+      {/* Background Pattern */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 left-1/2 h-[800px] w-[800px] -translate-x-1/2 rounded-full bg-primary/5 blur-3xl" />
+        <div className="absolute -top-1/2 left-1/2 h-[1000px] w-[1000px] -translate-x-1/2 rounded-full bg-primary/5 blur-3xl" />
         <div className="absolute bottom-0 right-0 h-[600px] w-[600px] rounded-full bg-accent/5 blur-3xl" />
+        {/* Grid Pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
+                             linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
+            backgroundSize: '80px 80px'
+          }}
+        />
       </div>
-
-      {/* Grid Pattern */}
-      <div 
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
-                           linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
-        }}
-      />
 
       <div className="container-width section-padding relative">
         <div className="mx-auto max-w-4xl text-center">
           {/* Badge */}
           <div 
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-secondary/50 px-4 py-2 text-sm text-muted-foreground opacity-0 animate-fade-in"
+            className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-5 py-2.5 text-sm text-muted-foreground backdrop-blur-sm opacity-0 animate-fade-in"
             style={{ animationDelay: '0.1s' }}
           >
             <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
@@ -43,7 +42,7 @@ export const HeroSection = () => {
 
           {/* Subheading */}
           <p 
-            className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground opacity-0 animate-fade-in sm:text-xl"
+            className="mx-auto mb-12 max-w-2xl text-lg text-muted-foreground opacity-0 animate-fade-in sm:text-xl"
             style={{ animationDelay: '0.3s' }}
           >
             Websites, automation, and cloud solutions tailored for modern businesses
@@ -55,7 +54,7 @@ export const HeroSection = () => {
             style={{ animationDelay: '0.4s' }}
           >
             <Link to="/contact">
-              <Button variant="gradient" size="lg" className="group">
+              <Button variant="gradient" size="lg" className="group min-w-[220px]">
                 Get Free Consultation
                 <ArrowRight className="transition-transform group-hover:translate-x-1" />
               </Button>
@@ -65,7 +64,7 @@ export const HeroSection = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="whatsapp" size="lg">
+              <Button variant="whatsapp" size="lg" className="min-w-[220px]">
                 <MessageCircle className="h-5 w-5" />
                 Contact on WhatsApp
               </Button>
