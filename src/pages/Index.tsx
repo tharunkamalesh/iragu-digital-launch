@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
+import RevealSection from "@/components/RevealSection";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -185,14 +186,16 @@ const Index = () => {
       {/* ==================== SERVICES SECTION ==================== */}
       <section id="services" className="section-padding bg-background">
         <div className="container-width">
-          <div className="mb-12">
-            <h2 className="mb-2 text-3xl font-bold text-foreground sm:text-4xl">
-              Transforming businesses <span className="text-gradient">with cutting-edge IT.</span>
-            </h2>
-            <p className="max-w-2xl text-muted-foreground">
-              Explore our comprehensive suite of technology solutions designed to scale your operations.
-            </p>
-          </div>
+          <RevealSection>
+            <div className="mb-12">
+              <h2 className="mb-2 text-3xl font-bold text-foreground sm:text-4xl">
+                Transforming businesses <span className="text-gradient">with cutting-edge IT.</span>
+              </h2>
+              <p className="max-w-2xl text-muted-foreground">
+                Explore our comprehensive suite of technology solutions designed to scale your operations.
+              </p>
+            </div>
+          </RevealSection>
 
           {/* Featured Card */}
           <div className="mb-8">
@@ -251,12 +254,14 @@ const Index = () => {
       {/* ==================== WHY CHOOSE US SECTION ==================== */}
       <section className="section-padding bg-card">
         <div className="container-width">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl">
-              Why Choose <span className="text-gradient">IRAGU</span>?
-            </h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground">We're committed to delivering excellence at every step</p>
-          </div>
+          <RevealSection>
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl">
+                Why Choose <span className="text-gradient">IRAGU</span>?
+              </h2>
+              <p className="mx-auto max-w-2xl text-muted-foreground">We're committed to delivering excellence at every step</p>
+            </div>
+          </RevealSection>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {reasons.map((reason) => (
@@ -280,12 +285,14 @@ const Index = () => {
       {/* ==================== PROCESS SECTION ==================== */}
       <section className="section-padding bg-background">
         <div className="container-width">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl">
-              Our <span className="text-gradient">Process</span>
-            </h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground">A streamlined approach to bring your ideas to life</p>
-          </div>
+          <RevealSection>
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl">
+                Our <span className="text-gradient">Process</span>
+              </h2>
+              <p className="mx-auto max-w-2xl text-muted-foreground">A streamlined approach to bring your ideas to life</p>
+            </div>
+          </RevealSection>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
             {steps.map((step, index) => (
@@ -313,14 +320,16 @@ const Index = () => {
       <section id="about" className="section-padding bg-card">
         <div className="container-width">
           <div className="mx-auto max-w-4xl">
-            <div className="mb-12 text-center">
-              <h2 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl">
-                About <span className="text-gradient">IRAGU</span>
-              </h2>
-              <p className="text-muted-foreground">
-                A growing IT solutions agency focused on delivering reliable, scalable, and affordable digital solutions.
-              </p>
-            </div>
+            <RevealSection>
+              <div className="mb-12 text-center">
+                <h2 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl">
+                  About <span className="text-gradient">IRAGU</span>
+                </h2>
+                <p className="text-muted-foreground">
+                  A growing IT solutions agency focused on delivering reliable, scalable, and affordable digital solutions.
+                </p>
+              </div>
+            </RevealSection>
 
             {/* Mission & Vision */}
             <div className="mb-8 grid gap-4 md:grid-cols-2">

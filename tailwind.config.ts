@@ -50,11 +50,11 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        coffee: {
-          dark: "hsl(var(--coffee-dark))",
-          medium: "hsl(var(--coffee-medium))",
-          light: "hsl(var(--coffee-light))",
-          cream: "hsl(var(--coffee-cream))",
+        green: {
+          dark: "hsl(var(--green-dark))",
+          medium: "hsl(var(--green-medium))",
+          light: "hsl(var(--green-light))",
+          pale: "hsl(var(--green-pale))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -102,8 +102,8 @@ export default {
           "50%": { transform: "translateY(-10px)" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(30 50% 45% / 0.3)" },
-          "50%": { boxShadow: "0 0 40px hsl(30 50% 45% / 0.5)" },
+          "0%, 100%": { boxShadow: "0 0 20px hsl(152 55% 38% / 0.3)" },
+          "50%": { boxShadow: "0 0 40px hsl(152 55% 38% / 0.5)" },
         },
       },
       animation: {
