@@ -6,59 +6,59 @@
 
 @layer base {
   :root {
-    --background: 20 15% 8%;
-    --foreground: 30 20% 98%;
+    --background: 0 0% 100%;
+    --foreground: 152 30% 15%;
 
-    --card: 20 15% 12%;
-    --card-foreground: 30 20% 98%;
+    --card: 150 25% 97%;
+    --card-foreground: 152 30% 15%;
 
-    --popover: 20 15% 12%;
-    --popover-foreground: 30 20% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 152 30% 15%;
 
-    --primary: 30 50% 45%;
-    --primary-foreground: 30 20% 98%;
+    --primary: 152 55% 38%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 20 15% 16%;
-    --secondary-foreground: 30 20% 98%;
+    --secondary: 150 20% 92%;
+    --secondary-foreground: 152 30% 20%;
 
-    --muted: 20 15% 18%;
-    --muted-foreground: 30 10% 60%;
+    --muted: 150 15% 94%;
+    --muted-foreground: 150 10% 45%;
 
-    --accent: 35 60% 55%;
-    --accent-foreground: 20 15% 8%;
+    --accent: 158 50% 45%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 30 20% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 20 15% 20%;
-    --input: 20 15% 16%;
-    --ring: 30 50% 45%;
+    --border: 150 20% 88%;
+    --input: 150 20% 90%;
+    --ring: 152 55% 38%;
 
     --radius: 1rem;
 
-    /* Custom Coffee Brown Tokens */
-    --coffee-dark: 20 20% 12%;
-    --coffee-medium: 30 45% 35%;
-    --coffee-light: 35 55% 50%;
-    --coffee-cream: 35 40% 90%;
+    /* Custom Green Tokens */
+    --green-dark: 152 55% 25%;
+    --green-medium: 152 55% 38%;
+    --green-light: 158 50% 45%;
+    --green-pale: 150 35% 95%;
     
-    --gradient-hero: linear-gradient(135deg, hsl(20 15% 8%) 0%, hsl(20 18% 12%) 50%, hsl(20 15% 10%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(20 15% 14%) 0%, hsl(20 15% 10%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(30 50% 45%) 0%, hsl(35 60% 55%) 100%);
-    --gradient-glow: radial-gradient(ellipse at center, hsl(30 50% 45% / 0.15) 0%, transparent 70%);
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(150 30% 98%) 50%, hsl(150 25% 96%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(150 25% 98%) 0%, hsl(150 20% 95%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(152 55% 38%) 0%, hsl(158 50% 45%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(152 55% 38% / 0.15) 0%, transparent 70%);
     
-    --shadow-glow: 0 0 40px hsl(30 50% 45% / 0.3);
-    --shadow-card: 0 4px 24px hsl(20 15% 5% / 0.5);
-    --shadow-elevated: 0 8px 32px hsl(20 15% 5% / 0.6);
+    --shadow-glow: 0 0 40px hsl(152 55% 38% / 0.2);
+    --shadow-card: 0 4px 24px hsl(150 20% 50% / 0.1);
+    --shadow-elevated: 0 8px 32px hsl(150 20% 50% / 0.15);
 
-    --sidebar-background: 20 15% 10%;
-    --sidebar-foreground: 30 20% 98%;
-    --sidebar-primary: 30 50% 45%;
-    --sidebar-primary-foreground: 30 20% 98%;
-    --sidebar-accent: 20 15% 18%;
-    --sidebar-accent-foreground: 30 20% 98%;
-    --sidebar-border: 20 15% 20%;
-    --sidebar-ring: 30 50% 45%;
+    --sidebar-background: 150 25% 97%;
+    --sidebar-foreground: 152 30% 15%;
+    --sidebar-primary: 152 55% 38%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 150 20% 92%;
+    --sidebar-accent-foreground: 152 30% 15%;
+    --sidebar-border: 150 20% 88%;
+    --sidebar-ring: 152 55% 38%;
   }
 }
 
@@ -144,4 +144,59 @@
   .icon-box-accent {
     @apply icon-box bg-accent/20 text-accent;
   }
+
+  /* Section Reveal Animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal-scale.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .stagger-1 { transition-delay: 0.1s; }
+  .stagger-2 { transition-delay: 0.2s; }
+  .stagger-3 { transition-delay: 0.3s; }
+  .stagger-4 { transition-delay: 0.4s; }
+  .stagger-5 { transition-delay: 0.5s; }
 }
