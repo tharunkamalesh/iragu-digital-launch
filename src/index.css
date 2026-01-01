@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
@@ -122,11 +123,11 @@
   }
 
   .section-padding {
-    @apply px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24;
+    @apply px-4 py-8 sm:px-6 sm:py-12 md:px-8 md:py-16 lg:py-20 xl:py-24;
   }
 
   .container-width {
-    @apply mx-auto max-w-7xl;
+    @apply mx-auto max-w-5xl sm:max-w-6xl lg:max-w-7xl;
   }
 
   .glass-card {
@@ -199,4 +200,106 @@
   .stagger-3 { transition-delay: 0.3s; }
   .stagger-4 { transition-delay: 0.4s; }
   .stagger-5 { transition-delay: 0.5s; }
+
+  /* Flip Card Styles */
+  .flip-card {
+    perspective: 1000px;
+    width: 100%;
+    height: 256px; /* h-64 = 256px */
+    cursor: pointer;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s ease-in-out;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    border-radius: 0.5rem; /* rounded-md */
+    box-shadow: var(--shadow-card);
+  }
+
+  .flip-card-front {
+    background: white;
+    border: 1px solid hsl(150 20% 88%); /* border-border */
+  }
+
+  .flip-card-back {
+    background: hsl(152 55% 38%); /* primary green */
+    color: white;
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-back p {
+    color: white;
+  }
+
+  /* Service Card Animations */
+  .service-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  
+  .service-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .service-card:nth-child(1) { transition-delay: 0.08s; }
+  .service-card:nth-child(2) { transition-delay: 0.16s; }
+  .service-card:nth-child(3) { transition-delay: 0.24s; }
+  .service-card:nth-child(4) { transition-delay: 0.32s; }
+  
+  /* Dark theme service card hover effect */
+  .dark-service-card {
+    transition: all 0.3s ease-out;
+  }
+  
+  .dark-service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px -5px rgba(34, 197, 94, 0.2);
+  }
+  
+  /* Team card animations */
+  .team-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  
+  .team-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .team-card:nth-child(1) { transition-delay: 0.08s; }
+  .team-card:nth-child(2) { transition-delay: 0.16s; }
+  .team-card:nth-child(3) { transition-delay: 0.24s; }
+  .team-card:nth-child(4) { transition-delay: 0.32s; }
+  
+  .team-card-base {
+    transition: all 0.3s ease-out;
+  }
+  
+  .team-card-base:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-elevated);
+  }
 }

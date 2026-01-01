@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Layout } from "@/components/layout/Layout";
 import RevealSection from "@/components/RevealSection";
 import { Button } from "@/components/ui/button";
@@ -20,17 +20,6 @@ import {
   DollarSign,
   Zap,
   HeadphonesIcon,
-  MessageSquare,
-  FileText,
-  Code,
-  TestTube,
-  Rocket,
-  Target,
-  Lightbulb,
-  Heart,
-  Award,
-  Sparkles,
-  Shield,
   Mail,
   Phone,
   MapPin,
@@ -41,29 +30,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 
-// Services Data
-const services = [
-  {
-    icon: Globe,
-    title: "Website Development",
-    description: "Modern, responsive business websites that convert visitors into customers.",
-  },
-  {
-    icon: Layers,
-    title: "Web Applications",
-    description: "Custom web apps built for scalability and optimal user experience.",
-  },
-  {
-    icon: Cog,
-    title: "Automation & CRM",
-    description: "Workflow automation to save time, reduce costs, and boost efficiency.",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud & Deployment",
-    description: "Secure and reliable cloud deployment for your applications.",
-  },
-];
+
 
 // Why Choose Us Data
 const reasons = [
@@ -74,22 +41,7 @@ const reasons = [
   { icon: HeadphonesIcon, title: "Post-Launch Support", description: "We're here even after go-live" },
 ];
 
-// Process Steps
-const steps = [
-  { number: "01", icon: MessageSquare, title: "Discussion", description: "Understanding your needs" },
-  { number: "02", icon: FileText, title: "Planning", description: "Detailed project roadmap" },
-  { number: "03", icon: Code, title: "Development", description: "Building with precision" },
-  { number: "04", icon: TestTube, title: "Testing", description: "Quality assurance" },
-  { number: "05", icon: Rocket, title: "Delivery", description: "Launch and beyond" },
-];
 
-// Values Data
-const values = [
-  { icon: Heart, title: "Integrity", desc: "Honest and transparent" },
-  { icon: Award, title: "Quality", desc: "Excellence in every project" },
-  { icon: Sparkles, title: "Innovation", desc: "Embracing new ideas" },
-  { icon: Shield, title: "Partnership", desc: "Lasting relationships" },
-];
 
 const Index = () => {
   const { toast } = useToast();
@@ -100,6 +52,41 @@ const Index = () => {
     inquiryType: "",
     message: "",
   });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    // Observe service cards
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach((card) => {
+      observer.observe(card);
+    });
+    
+    // Observe team cards
+    const teamCards = document.querySelectorAll('.team-card');
+    teamCards.forEach((card) => {
+      observer.observe(card);
+    });
+
+    return () => {
+      serviceCards.forEach((card) => {
+        observer.unobserve(card);
+      });
+      
+      teamCards.forEach((card) => {
+        observer.unobserve(card);
+      });
+    };
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -121,22 +108,15 @@ const Index = () => {
   return (
     <Layout>
       {/* ==================== HERO SECTION ==================== */}
-      <section id="home" className="relative overflow-hidden bg-gradient-hero min-h-[90vh] flex items-center">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-1/2 left-1/2 h-[1000px] w-[1000px] -translate-x-1/2 rounded-full bg-primary/5 blur-3xl" />
-          <div className="absolute bottom-0 right-0 h-[600px] w-[600px] rounded-full bg-accent/5 blur-3xl" />
-          <div
-            className="absolute inset-0 opacity-[0.02]"
-            style={{
-              backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
-                               linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-              backgroundSize: "80px 80px",
-            }}
-          />
+      <section id="home" className="relative overflow-hidden bg-gradient-hero min-h-[90vh] flex items-center z-10">
+        {/* Original background elements (kept for additional depth) */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+          <div className="absolute -top-1/2 left-1/2 h-[1000px] w-[1000px] -translate-x-1/2 rounded-full bg-primary/5 blur-3xl opacity-50" />
+          <div className="absolute bottom-0 right-0 h-[600px] w-[600px] rounded-full bg-accent/5 blur-3xl opacity-50" />
         </div>
 
-        <div className="container-width section-padding relative">
-          <div className="mx-auto max-w-4xl text-center">
+        <div className="container-width section-padding relative z-10">
+          <div className="mx-auto max-w-4xl text-center relative z-10">
             <div
               className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-5 py-2.5 text-sm text-muted-foreground backdrop-blur-sm opacity-0 animate-fade-in"
               style={{ animationDelay: "0.1s" }}
@@ -146,36 +126,34 @@ const Index = () => {
             </div>
 
             <h1
-              className="mb-6 text-4xl font-bold leading-tight tracking-tight text-foreground opacity-0 animate-fade-in sm:text-5xl md:text-6xl lg:text-7xl"
+              className="mb-6 text-3xl font-bold leading-tight tracking-tight text-[#0F172A] opacity-0 animate-fade-in sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
               style={{ animationDelay: "0.2s" }}
             >
-              We Build Digital Solutions That <span className="text-gradient">Grow Your Business</span>
+              We Build Digital Solutions That Help Businesses <span style={{color: "#16A34A"}}>Scale Faster</span>
             </h1>
 
             <p
-              className="mx-auto mb-12 max-w-2xl text-lg text-muted-foreground opacity-0 animate-fade-in sm:text-xl"
+              className="mx-auto mb-4 max-w-xl text-base text-[#64748B] opacity-0 animate-fade-in sm:text-lg md:mb-6 md:max-w-2xl md:text-xl"
               style={{ animationDelay: "0.3s" }}
             >
-              Websites, automation, and cloud solutions tailored for modern businesses
+              We help startups and businesses build fast, secure, and scalable digital products.
+            </p>
+            
+            <p
+              className="mx-auto mb-8 max-w-xl text-sm text-[#64748B] opacity-0 animate-fade-in sm:text-base md:mb-12"
+              style={{ animationDelay: "0.35s" }}
+            >
+              Free consultation • No obligation • Quick response
             </p>
 
             <div
-              className="flex flex-col items-center justify-center gap-4 opacity-0 animate-fade-in sm:flex-row"
+              className="flex flex-col items-center justify-center gap-4 opacity-0 animate-fade-in sm:flex-row sm:gap-6"
               style={{ animationDelay: "0.4s" }}
             >
-              <Button
-                variant="gradient"
-                size="lg"
-                className="group min-w-[220px]"
-                onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-              >
-                Get Free Consultation
-                <ArrowRight className="transition-transform group-hover:translate-x-1" />
-              </Button>
-              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">
-                <Button variant="whatsapp" size="lg" className="min-w-[220px]">
+              <a href="https://wa.me/9626299568" target="_blank" rel="noopener noreferrer">
+                <Button variant="default" size="lg" className="w-full sm:w-auto min-w-[200px] md:min-w-[220px] bg-[#22C55E] hover:bg-[#16A34A] text-white">
                   <MessageCircle className="h-5 w-5" />
-                  Contact on WhatsApp
+                  Chat on WhatsApp
                 </Button>
               </a>
             </div>
@@ -183,76 +161,167 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ==================== ABOUT IRAGU SECTION ==================== */}
+      <section className="section-padding bg-card relative z-10">
+        <div className="container-width">
+          <div className="mx-auto max-w-6xl">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-foreground sm:text-4xl">About <span className="text-gradient">IRAGU</span></h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Card 1: About IRAGU - Flip Card */}
+              <div className="flip-card">
+                <div className="flip-card-inner">
+                  <div className="flip-card-front">
+                    <h3 className="text-xl font-bold text-foreground">About IRAGU</h3>
+                  </div>
+                  <div className="flip-card-back">
+                    <p className="text-sm sm:text-base text-white">
+                      IRAGU is an IT solutions agency focused on helping startups and businesses build a strong digital presence.
+                      We design and develop modern websites, scalable web applications, and automation solutions that save time and improve efficiency.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Card 2: Our Mission - Flip Card */}
+              <div className="flip-card">
+                <div className="flip-card-inner">
+                  <div className="flip-card-front">
+                    <h3 className="text-xl font-bold text-foreground">Our Mission</h3>
+                  </div>
+                  <div className="flip-card-back">
+                    <p className="text-sm sm:text-base text-white">
+                      Our mission is to help businesses grow by providing reliable, affordable, and high-quality digital solutions using modern technology and best practices.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Card 3: Our Vision - Flip Card */}
+              <div className="flip-card">
+                <div className="flip-card-inner">
+                  <div className="flip-card-front">
+                    <h3 className="text-xl font-bold text-foreground">Our Vision</h3>
+                  </div>
+                  <div className="flip-card-back">
+                    <p className="text-sm sm:text-base text-white">
+                      Our vision is to become a trusted technology partner for businesses by delivering innovative, scalable, and future-ready digital solutions.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ==================== SERVICES SECTION ==================== */}
-      <section id="services" className="section-padding bg-background">
+      <section id="services" className="section-padding bg-[#0B0F0E] relative z-10">
         <div className="container-width">
           <RevealSection>
-            <div className="mb-12">
-              <h2 className="mb-2 text-3xl font-bold text-foreground sm:text-4xl">
-                Transforming businesses <span className="text-gradient">with cutting-edge IT.</span>
+            <div className="mb-12 text-center">
+              <h2 className="mb-2 text-3xl font-bold text-white sm:text-4xl">
+                What Services We Provide
               </h2>
-              <p className="max-w-2xl text-muted-foreground">
-                Explore our comprehensive suite of technology solutions designed to scale your operations.
+              <p className="max-w-2xl mx-auto text-[#9CA3AF]">
+                End-to-end digital solutions designed to build, scale, and transform businesses.
               </p>
             </div>
           </RevealSection>
 
-          {/* Featured Card */}
-          <div className="mb-8">
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-card border border-border p-8 md:p-10">
-              <div className="absolute inset-0 opacity-20">
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage: `radial-gradient(circle at 20% 80%, hsl(var(--primary) / 0.3) 0%, transparent 50%),
-                                     radial-gradient(circle at 80% 20%, hsl(var(--accent) / 0.2) 0%, transparent 50%)`,
-                  }}
-                />
-              </div>
-              <div className="relative">
-                <span className="mb-4 inline-block rounded-md bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
-                  FEATURED
-                </span>
-                <h3 className="mb-3 text-2xl font-bold text-foreground md:text-3xl">Custom Software Development</h3>
-                <p className="mb-6 max-w-xl text-muted-foreground">
-                  Tailored, scalable engineering solutions built specifically to address your unique business challenges.
-                </p>
-                <Button
-                  variant="outline"
-                  className="group"
-                  onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-                >
-                  Get Quote
-                  <ArrowRight className="transition-transform group-hover:translate-x-1" />
-                </Button>
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Web Development */}
+            <div className="dark-service-card group relative rounded-xl bg-[#111827] p-6 border border-[#374151] transition-all duration-300 hover:border-green-500/50 cursor-pointer">
+              <div className="absolute inset-0 rounded-xl opacity-20 bg-gradient-to-br from-transparent to-green-500/10"></div>
+              <div className="relative z-10">
+                <span className="text-xs text-[#9CA3AF] mb-2 inline-block">Development</span>
+                <h3 className="text-xl font-bold text-white mb-3">Web Development</h3>
+                <p className="text-[#9CA3AF] mb-4">Custom web applications, business websites, e-commerce platforms, and PWAs.</p>
+                <div className="flex items-center text-green-500 text-sm font-medium">
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </div>
               </div>
             </div>
-          </div>
-
-          <h3 className="mb-4 text-lg font-semibold text-foreground">All Services</h3>
-          <div className="space-y-3">
-            {services.map((service) => (
-              <div
-                key={service.title}
-                className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-4 transition-all duration-300 hover:border-primary/30 hover:bg-secondary/50 cursor-pointer"
-                onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-              >
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10">
-                  <service.icon className="h-5 w-5 text-primary" />
+            
+            {/* Mobile Applications */}
+            <div className="dark-service-card group relative rounded-xl bg-[#111827] p-6 border border-[#374151] transition-all duration-300 hover:border-green-500/50 cursor-pointer">
+              <div className="absolute inset-0 rounded-xl opacity-20 bg-gradient-to-br from-transparent to-green-500/10"></div>
+              <div className="relative z-10">
+                <span className="text-xs text-[#9CA3AF] mb-2 inline-block">Development</span>
+                <h3 className="text-xl font-bold text-white mb-3">Mobile Applications</h3>
+                <p className="text-[#9CA3AF] mb-4">Native and cross-platform mobile applications for Android and iOS.</p>
+                <div className="flex items-center text-green-500 text-sm font-medium">
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h4 className="font-semibold text-foreground">{service.title}</h4>
-                  <p className="text-sm text-muted-foreground truncate">{service.description}</p>
-                </div>
-                <ChevronRight className="h-5 w-5 flex-shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" />
               </div>
-            ))}
+            </div>
+            
+            {/* Cloud & DevOps - Larger card */}
+            <div className="dark-service-card group relative rounded-xl bg-[#111827] p-6 border border-[#374151] transition-all duration-300 hover:border-green-500/50 cursor-pointer">
+              <div className="absolute inset-0 rounded-xl opacity-20 bg-gradient-to-br from-transparent to-green-500/10"></div>
+              <div className="relative z-10">
+                <span className="text-xs text-[#9CA3AF] mb-2 inline-block">Infrastructure</span>
+                <h3 className="text-xl font-bold text-white mb-3">Cloud & DevOps</h3>
+                <p className="text-[#9CA3AF] mb-4">Scalable infrastructure, cloud deployment, and CI/CD pipelines.</p>
+                <div className="flex items-center text-green-500 text-sm font-medium">
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </div>
+              </div>
+            </div>
+            
+            {/* Automation & CRM */}
+            <div className="dark-service-card group relative rounded-xl bg-[#111827] p-6 border border-[#374151] transition-all duration-300 hover:border-green-500/50 cursor-pointer">
+              <div className="absolute inset-0 rounded-xl opacity-20 bg-gradient-to-br from-transparent to-green-500/10"></div>
+              <div className="relative z-10">
+                <span className="text-xs text-[#9CA3AF] mb-2 inline-block">Automation</span>
+                <h3 className="text-xl font-bold text-white mb-3">Automation & CRM</h3>
+                <p className="text-[#9CA3AF] mb-4">Workflow automation and CRM solutions to save time and improve efficiency.</p>
+                <div className="flex items-center text-green-500 text-sm font-medium">
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </div>
+              </div>
+            </div>
+            
+            {/* Intelligence / AI Solutions */}
+            <div className="dark-service-card group relative rounded-xl bg-[#111827] p-6 border border-[#374151] transition-all duration-300 hover:border-green-500/50 cursor-pointer">
+              <div className="absolute inset-0 rounded-xl opacity-20 bg-gradient-to-br from-transparent to-green-500/10"></div>
+              <div className="relative z-10">
+                <span className="text-xs text-[#9CA3AF] mb-2 inline-block">Intelligence</span>
+                <h3 className="text-xl font-bold text-white mb-3">Intelligence / AI Solutions</h3>
+                <p className="text-[#9CA3AF] mb-4">Data-driven intelligence and smart automation solutions.</p>
+                <div className="flex items-center text-green-500 text-sm font-medium">
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </div>
+              </div>
+            </div>
+            
+            {/* Design & Transformation */}
+            <div className="dark-service-card group relative rounded-xl bg-[#111827] p-6 border border-[#374151] transition-all duration-300 hover:border-green-500/50 cursor-pointer">
+              <div className="absolute inset-0 rounded-xl opacity-20 bg-gradient-to-br from-transparent to-green-500/10"></div>
+              <div className="relative z-10">
+                <span className="text-xs text-[#9CA3AF] mb-2 inline-block">Design</span>
+                <h3 className="text-xl font-bold text-white mb-3">Design & Transformation</h3>
+                <p className="text-[#9CA3AF] mb-4">UI/UX design and digital transformation services.</p>
+                <div className="flex items-center text-green-500 text-sm font-medium">
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ==================== WHY CHOOSE US SECTION ==================== */}
-      <section className="section-padding bg-card">
+      <section className="section-padding bg-card relative z-10">
         <div className="container-width">
           <RevealSection>
             <div className="mb-12 text-center">
@@ -263,16 +332,16 @@ const Index = () => {
             </div>
           </RevealSection>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {reasons.map((reason) => (
               <div
                 key={reason.title}
-                className="flex items-start gap-4 rounded-2xl border border-border bg-background/50 p-5 transition-all duration-300 hover:border-primary/30"
+                className="flex flex-col sm:flex-row items-center sm:items-start gap-4 rounded-2xl border border-border bg-background/50 p-5 transition-all duration-300 hover:border-primary/30"
               >
                 <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
                   <reason.icon className="h-5 w-5 text-white" />
                 </div>
-                <div>
+                <div className="text-center sm:text-left">
                   <h3 className="mb-1 font-semibold text-foreground">{reason.title}</h3>
                   <p className="text-sm text-muted-foreground">{reason.description}</p>
                 </div>
@@ -281,113 +350,65 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      {/* ==================== PROCESS SECTION ==================== */}
-      <section className="section-padding bg-background">
+      
+      {/* ==================== OUR TEAM SECTION ==================== */}
+      <section className="section-padding bg-background relative z-10">
         <div className="container-width">
           <RevealSection>
             <div className="mb-12 text-center">
               <h2 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl">
-                Our <span className="text-gradient">Process</span>
+                Our Team
               </h2>
-              <p className="mx-auto max-w-2xl text-muted-foreground">A streamlined approach to bring your ideas to life</p>
+              <p className="mx-auto max-w-2xl text-muted-foreground">The people behind IRAGU who turn ideas into digital solutions</p>
             </div>
           </RevealSection>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-            {steps.map((step, index) => (
-              <div key={step.number} className="group relative text-center">
-                <div className="rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/30 hover:bg-secondary/30">
-                  <span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-sm font-bold text-white">
-                    {step.number}
-                  </span>
-                  <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary">
-                    <step.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="mb-1 font-semibold text-foreground">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground">{step.description}</p>
-                </div>
-                {index < steps.length - 1 && (
-                  <div className="absolute -right-3 top-1/2 hidden h-0.5 w-6 bg-border lg:block" />
-                )}
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Team Member 1 */}
+            <div className="team-card team-card-base rounded-lg border border-border bg-card p-6 text-center transition-all duration-300 hover:shadow-lg flex flex-col items-center">
+              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-white text-xl font-bold mb-4">
+                D
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== ABOUT SECTION ==================== */}
-      <section id="about" className="section-padding bg-card">
-        <div className="container-width">
-          <div className="mx-auto max-w-4xl">
-            <RevealSection>
-              <div className="mb-12 text-center">
-                <h2 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl">
-                  About <span className="text-gradient">IRAGU</span>
-                </h2>
-                <p className="text-muted-foreground">
-                  A growing IT solutions agency focused on delivering reliable, scalable, and affordable digital solutions.
-                </p>
-              </div>
-            </RevealSection>
-
-            {/* Mission & Vision */}
-            <div className="mb-8 grid gap-4 md:grid-cols-2">
-              <div className="rounded-2xl border border-border bg-background/50 p-6">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
-                  <Target className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="mb-2 text-xl font-semibold text-foreground">Our Mission</h3>
-                <p className="text-muted-foreground">
-                  To help businesses grow through technology-driven solutions that are reliable, scalable, and tailored to their needs.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-border bg-background/50 p-6">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-primary">
-                  <Lightbulb className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="mb-2 text-xl font-semibold text-foreground">Our Vision</h3>
-                <p className="text-muted-foreground">
-                  To become a trusted technology partner for businesses worldwide, known for innovation and reliability.
-                </p>
-              </div>
+              <h3 className="text-lg font-bold text-foreground mb-1">Dharshan</h3>
+              <p className="text-sm text-muted-foreground">Software Engineer / Developer</p>
             </div>
-
-            {/* Values */}
-            <div className="mb-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {values.map((value) => (
-                <div key={value.title} className="flex items-center gap-3 rounded-xl border border-border bg-background/50 p-4">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                    <value.icon className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">{value.title}</h4>
-                    <p className="text-xs text-muted-foreground">{value.desc}</p>
-                  </div>
-                </div>
-              ))}
+            
+            {/* Team Member 2 */}
+            <div className="team-card team-card-base rounded-lg border border-border bg-card p-6 text-center transition-all duration-300 hover:shadow-lg flex flex-col items-center">
+              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-white text-xl font-bold mb-4">
+                TK
+              </div>
+              <h3 className="text-lg font-bold text-foreground mb-1">Tharun Kamalesh</h3>
+              <p className="text-sm text-muted-foreground">Software Engineer / Developer</p>
             </div>
-
-            {/* Founder */}
-            <div className="flex flex-col items-center gap-6 rounded-2xl border border-border bg-background/50 p-8 sm:flex-row sm:items-start">
-              <div className="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent">
-                <Users className="h-8 w-8 text-white" />
+            
+            {/* Team Member 3 */}
+            <div className="team-card team-card-base rounded-lg border border-border bg-card p-6 text-center transition-all duration-300 hover:shadow-lg flex flex-col items-center">
+              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-white text-xl font-bold mb-4">
+                S
               </div>
-              <div className="text-center sm:text-left">
-                <h3 className="mb-1 text-xl font-bold text-foreground">Tharun</h3>
-                <p className="mb-4 text-sm font-medium text-primary">Founder & Tech Lead</p>
-                <p className="text-muted-foreground">
-                  With a passion for technology and a vision to help businesses succeed, Tharun founded IRAGU to bridge the gap between
-                  complex technology and practical business solutions.
-                </p>
+              <h3 className="text-lg font-bold text-foreground mb-1">Sharvesh</h3>
+              <p className="text-sm text-muted-foreground">Software Engineer / Developer</p>
+            </div>
+            
+            {/* Team Member 4 */}
+            <div className="team-card team-card-base rounded-lg border border-border bg-card p-6 text-center transition-all duration-300 hover:shadow-lg flex flex-col items-center">
+              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-white text-xl font-bold mb-4">
+                Sr
               </div>
+              <h3 className="text-lg font-bold text-foreground mb-1">Sridhar</h3>
+              <p className="text-sm text-muted-foreground">Software Engineer / Developer</p>
             </div>
           </div>
         </div>
       </section>
+
+
+
+
 
       {/* ==================== CONTACT SECTION ==================== */}
-      <section id="contact" className="section-padding bg-background">
+      <section id="contact" className="section-padding bg-background relative z-10">
         <div className="container-width">
           <div className="mx-auto max-w-2xl">
             {/* Hero Card */}
@@ -408,27 +429,27 @@ const Index = () => {
             </div>
 
             {/* Contact Info Cards */}
-            <div className="grid gap-4 sm:grid-cols-2 mb-8">
+            <div className="grid grid-cols-1 gap-4 mb-6 sm:grid-cols-2 sm:mb-8">
               <a
                 href="mailto:hello@iragu.com"
-                className="flex items-start gap-4 rounded-2xl border border-border bg-card p-5 transition-all hover:border-primary/30"
+                className="flex flex-col sm:flex-row items-center sm:items-start gap-4 rounded-2xl border border-border bg-card p-4 sm:p-5 transition-all hover:border-primary/30"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/20">
                   <Mail className="h-5 w-5 text-primary" />
                 </div>
-                <div>
+                <div className="text-center sm:text-left">
                   <p className="text-sm text-muted-foreground">Email Support</p>
                   <p className="font-semibold text-foreground">hello@iragu.com</p>
                 </div>
               </a>
               <a
                 href="tel:+15550123456"
-                className="flex items-start gap-4 rounded-2xl border border-border bg-card p-5 transition-all hover:border-primary/30"
+                className="flex flex-col sm:flex-row items-center sm:items-start gap-4 rounded-2xl border border-border bg-card p-4 sm:p-5 transition-all hover:border-primary/30"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/20">
                   <Phone className="h-5 w-5 text-accent" />
                 </div>
-                <div>
+                <div className="text-center sm:text-left">
                   <p className="text-sm text-muted-foreground">Call Us</p>
                   <p className="font-semibold text-foreground">+1 (555) 012-3456</p>
                 </div>
@@ -436,26 +457,26 @@ const Index = () => {
             </div>
 
             {/* Address */}
-            <div className="mb-8 flex items-start gap-4 rounded-2xl border border-border bg-card p-5">
+            <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row items-center sm:items-start gap-4 rounded-2xl border border-border bg-card p-4 sm:p-5">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/20">
                 <MapPin className="h-5 w-5 text-primary" />
               </div>
-              <div>
+              <div className="text-center sm:text-left">
                 <p className="text-sm text-muted-foreground">Main Office</p>
-                <p className="font-semibold text-foreground">123 Innovation Blvd, Tech District, San Francisco, CA 94103</p>
+                <p className="font-semibold text-foreground text-sm sm:text-base">123 Innovation Blvd, Tech District, San Francisco, CA 94103</p>
               </div>
             </div>
 
             {/* Contact Form */}
-            <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-              <div className="flex items-center gap-3 mb-6">
+            <div className="rounded-2xl border border-border bg-card p-4 sm:p-6 md:p-8">
+              <div className="flex items-center gap-3 mb-4 sm:mb-6">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/20">
                   <MessageCircle className="h-4 w-4 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground">Send us a message</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-foreground">Send us a message</h3>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                     Full Name
@@ -539,13 +560,13 @@ const Index = () => {
             </div>
 
             {/* WhatsApp CTA */}
-            <div className="mt-8 rounded-2xl border border-[#25D366]/30 bg-[#25D366]/10 p-6 text-center">
-              <h3 className="mb-2 text-lg font-semibold text-foreground">Prefer a Quick Chat?</h3>
-              <p className="mb-4 text-sm text-muted-foreground">Get in touch with us on WhatsApp for instant responses.</p>
-              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">
+            <div className="mt-6 sm:mt-8 rounded-2xl border border-[#25D366]/30 bg-[#25D366]/10 p-4 sm:p-6 text-center">
+              <h3 className="mb-2 text-base sm:text-lg font-semibold text-foreground">Prefer a Quick Chat?</h3>
+              <p className="mb-3 sm:mb-4 text-sm text-muted-foreground">Get in touch with us on WhatsApp for instant responses.</p>
+              <a href="https://wa.me/9626299568" target="_blank" rel="noopener noreferrer">
                 <Button variant="whatsapp" size="lg" className="w-full sm:w-auto">
                   <MessageCircle className="h-5 w-5" />
-                  WhatsApp Now
+                  Chat on WhatsApp
                 </Button>
               </a>
             </div>

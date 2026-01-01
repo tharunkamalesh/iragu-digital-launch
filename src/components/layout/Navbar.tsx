@@ -20,7 +20,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/30 bg-background/70 backdrop-blur-md">
       <nav className="container-width section-padding !py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -46,7 +46,7 @@ export const Navbar = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button variant="gradient" size="default" onClick={() => scrollToSection("#contact")}>
-              Get Free Consultation
+              Contact Us
             </Button>
           </div>
 
@@ -77,7 +77,7 @@ export const Navbar = () => {
               </button>
             ))}
             <Button variant="gradient" size="default" className="w-full" onClick={() => scrollToSection("#contact")}>
-              Get Free Consultation
+              Contact Us
             </Button>
           </div>
         )}
