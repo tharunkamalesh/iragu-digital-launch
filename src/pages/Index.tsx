@@ -220,85 +220,126 @@ const Index = () => {
       <section id="services" className="section-padding bg-[#0B0F0E] relative z-10">
         <div className="container-width">
           <RevealSection>
-            <div className="mb-12">
-              <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-                {/* Left Column - Service List */}
-                <div className="lg:col-span-2">
-                  <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
-                    Our Services
-                  </h2>
-                  <p className="mb-8 text-[#9CA3AF]">
-                    End-to-end digital solutions designed to build, scale, and transform businesses.
-                  </p>
-                  
-                  <div className="space-y-4">
-                    <div className="text-[#D1D5DB] py-2 border-l-2 border-[#22C55E] pl-4">
-                      <span className="text-green-500 font-semibold">•</span> Web Development
-                    </div>
-                    <div className="text-[#D1D5DB] py-2 border-l-2 border-[#22C55E] pl-4">
-                      <span className="text-green-500 font-semibold">•</span> Mobile Applications
-                    </div>
-                    <div className="text-[#D1D5DB] py-2 border-l-2 border-[#22C55E] pl-4">
-                      <span className="text-green-500 font-semibold">•</span> Cloud & DevOps
-                    </div>
-                    <div className="text-[#D1D5DB] py-2 border-l-2 border-[#22C55E] pl-4">
-                      <span className="text-green-500 font-semibold">•</span> Automation & CRM
-                    </div>
-                    <div className="text-[#D1D5DB] py-2 border-l-2 border-[#22C55E] pl-4">
-                      <span className="text-green-500 font-semibold">•</span> AI Solutions
-                    </div>
-                    <div className="text-[#D1D5DB] py-2 border-l-2 border-[#22C55E] pl-4">
-                      <span className="text-green-500 font-semibold">•</span> Design & Transformation
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Right Column - Service Card Slider */}
-                <div className="lg:col-span-3">
-                  <ServiceSlider 
-                    slides={[ 
-                      { 
-                        category: "Development", 
-                        title: "Web Development", 
-                        description: "Custom web applications, business websites, e-commerce platforms, and PWAs.",
-                        image: "/api/placeholder/400/160" 
-                      },
-                      { 
-                        category: "Development", 
-                        title: "Mobile Applications", 
-                        description: "Native and cross-platform mobile applications for Android and iOS.",
-                        image: "/api/placeholder/400/160" 
-                      },
-                      { 
-                        category: "Infrastructure", 
-                        title: "Cloud & DevOps", 
-                        description: "Scalable infrastructure, cloud deployment, and CI/CD pipelines.",
-                        image: "/api/placeholder/400/160" 
-                      },
-                      { 
-                        category: "Automation", 
-                        title: "Automation & CRM", 
-                        description: "Workflow automation and CRM solutions to save time and improve efficiency.",
-                        image: "/api/placeholder/400/160" 
-                      },
-                      { 
-                        category: "Intelligence", 
-                        title: "Intelligence / AI Solutions", 
-                        description: "Data-driven intelligence and smart automation solutions.",
-                        image: "/api/placeholder/400/160" 
-                      },
-                      { 
-                        category: "Design", 
-                        title: "Design & Transformation", 
-                        description: "UI/UX design and digital transformation services.",
-                        image: "/api/placeholder/400/160" 
-                      }
-                    ]}
-                  />
+            <div className="mb-12 text-center">
+              <h2 className="mb-2 text-3xl font-bold text-white sm:text-4xl">
+                What Services We Provide
+              </h2>
+              <p className="max-w-2xl mx-auto text-[#9CA3AF]">
+                End-to-end digital solutions designed to build, scale, and transform businesses.
+              </p>
+            </div>
+          </RevealSection>
+
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Web Development */}
+            <div className="service-card group relative">
+              <img 
+                src="/api/placeholder/400/160" 
+                alt="Web Development"
+                className="service-card-image"
+              />
+              <div className="service-card-content">
+                <span className="text-xs text-[#9CA3AF] mb-2 inline-block">Development</span>
+                <h3 className="text-xl font-bold text-white mb-3">Web Development</h3>
+                <p className="text-[#9CA3AF] mb-4 flex-1">Custom web applications, business websites, e-commerce platforms, and PWAs.</p>
+                <div className="flex items-center text-green-500 text-sm font-medium learn-more">
+                  Learn more
+                  <ArrowRight className="arrow ml-1 h-4 w-4" />
                 </div>
               </div>
             </div>
-          </RevealSection>
+            
+            {/* Mobile Applications */}
+            <div className="service-card group relative">
+              <img 
+                src="/api/placeholder/400/160" 
+                alt="Mobile Applications"
+                className="service-card-image"
+              />
+              <div className="service-card-content">
+                <span className="text-xs text-[#9CA3AF] mb-2 inline-block">Development</span>
+                <h3 className="text-xl font-bold text-white mb-3">Mobile Applications</h3>
+                <p className="text-[#9CA3AF] mb-4 flex-1">Native and cross-platform mobile applications for Android and iOS.</p>
+                <div className="flex items-center text-green-500 text-sm font-medium learn-more">
+                  Learn more
+                  <ArrowRight className="arrow ml-1 h-4 w-4" />
+                </div>
+              </div>
+            </div>
+            
+            {/* Cloud & DevOps - Larger card */}
+            <div className="service-card group relative">
+              <img 
+                src="/api/placeholder/400/160" 
+                alt="Cloud & DevOps"
+                className="service-card-image"
+              />
+              <div className="service-card-content">
+                <span className="text-xs text-[#9CA3AF] mb-2 inline-block">Infrastructure</span>
+                <h3 className="text-xl font-bold text-white mb-3">Cloud & DevOps</h3>
+                <p className="text-[#9CA3AF] mb-4 flex-1">Scalable infrastructure, cloud deployment, and CI/CD pipelines.</p>
+                <div className="flex items-center text-green-500 text-sm font-medium learn-more">
+                  Learn more
+                  <ArrowRight className="arrow ml-1 h-4 w-4" />
+                </div>
+              </div>
+            </div>
+            
+            {/* Automation & CRM */}
+            <div className="service-card group relative">
+              <img 
+                src="/api/placeholder/400/160" 
+                alt="Automation & CRM"
+                className="service-card-image"
+              />
+              <div className="service-card-content">
+                <span className="text-xs text-[#9CA3AF] mb-2 inline-block">Automation</span>
+                <h3 className="text-xl font-bold text-white mb-3">Automation & CRM</h3>
+                <p className="text-[#9CA3AF] mb-4 flex-1">Workflow automation and CRM solutions to save time and improve efficiency.</p>
+                <div className="flex items-center text-green-500 text-sm font-medium learn-more">
+                  Learn more
+                  <ArrowRight className="arrow ml-1 h-4 w-4" />
+                </div>
+              </div>
+            </div>
+            
+            {/* Intelligence / AI Solutions */}
+            <div className="service-card group relative">
+              <img 
+                src="/api/placeholder/400/160" 
+                alt="AI Solutions"
+                className="service-card-image"
+              />
+              <div className="service-card-content">
+                <span className="text-xs text-[#9CA3AF] mb-2 inline-block">Intelligence</span>
+                <h3 className="text-xl font-bold text-white mb-3">Intelligence / AI Solutions</h3>
+                <p className="text-[#9CA3AF] mb-4 flex-1">Data-driven intelligence and smart automation solutions.</p>
+                <div className="flex items-center text-green-500 text-sm font-medium learn-more">
+                  Learn more
+                  <ArrowRight className="arrow ml-1 h-4 w-4" />
+                </div>
+              </div>
+            </div>
+            
+            {/* Design & Transformation */}
+            <div className="service-card group relative">
+              <img 
+                src="/api/placeholder/400/160" 
+                alt="Design & Transformation"
+                className="service-card-image"
+              />
+              <div className="service-card-content">
+                <span className="text-xs text-[#9CA3AF] mb-2 inline-block">Design</span>
+                <h3 className="text-xl font-bold text-white mb-3">Design & Transformation</h3>
+                <p className="text-[#9CA3AF] mb-4 flex-1">UI/UX design and digital transformation services.</p>
+                <div className="flex items-center text-green-500 text-sm font-medium learn-more">
+                  Learn more
+                  <ArrowRight className="arrow ml-1 h-4 w-4" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
