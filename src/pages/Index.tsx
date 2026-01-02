@@ -232,85 +232,79 @@ const Index = () => {
           {/* Services Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Web Development */}
-            <div className="dark-service-card group relative rounded-xl bg-[#111827] p-6 border border-[#374151] transition-all duration-300 hover:border-green-500/50 cursor-pointer">
-              <div className="absolute inset-0 rounded-xl opacity-20 bg-gradient-to-br from-transparent to-green-500/10"></div>
+            <div className="service-card group relative">
               <div className="relative z-10">
                 <span className="text-xs text-[#9CA3AF] mb-2 inline-block">Development</span>
                 <h3 className="text-xl font-bold text-white mb-3">Web Development</h3>
                 <p className="text-[#9CA3AF] mb-4">Custom web applications, business websites, e-commerce platforms, and PWAs.</p>
                 <div className="flex items-center text-green-500 text-sm font-medium">
                   Learn more
-                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="arrow ml-1 h-4 w-4" />
                 </div>
               </div>
             </div>
             
             {/* Mobile Applications */}
-            <div className="dark-service-card group relative rounded-xl bg-[#111827] p-6 border border-[#374151] transition-all duration-300 hover:border-green-500/50 cursor-pointer">
-              <div className="absolute inset-0 rounded-xl opacity-20 bg-gradient-to-br from-transparent to-green-500/10"></div>
+            <div className="service-card group relative">
               <div className="relative z-10">
                 <span className="text-xs text-[#9CA3AF] mb-2 inline-block">Development</span>
                 <h3 className="text-xl font-bold text-white mb-3">Mobile Applications</h3>
                 <p className="text-[#9CA3AF] mb-4">Native and cross-platform mobile applications for Android and iOS.</p>
                 <div className="flex items-center text-green-500 text-sm font-medium">
                   Learn more
-                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="arrow ml-1 h-4 w-4" />
                 </div>
               </div>
             </div>
             
             {/* Cloud & DevOps - Larger card */}
-            <div className="dark-service-card group relative rounded-xl bg-[#111827] p-6 border border-[#374151] transition-all duration-300 hover:border-green-500/50 cursor-pointer">
-              <div className="absolute inset-0 rounded-xl opacity-20 bg-gradient-to-br from-transparent to-green-500/10"></div>
+            <div className="service-card group relative">
               <div className="relative z-10">
                 <span className="text-xs text-[#9CA3AF] mb-2 inline-block">Infrastructure</span>
                 <h3 className="text-xl font-bold text-white mb-3">Cloud & DevOps</h3>
                 <p className="text-[#9CA3AF] mb-4">Scalable infrastructure, cloud deployment, and CI/CD pipelines.</p>
                 <div className="flex items-center text-green-500 text-sm font-medium">
                   Learn more
-                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="arrow ml-1 h-4 w-4" />
                 </div>
               </div>
             </div>
             
             {/* Automation & CRM */}
-            <div className="dark-service-card group relative rounded-xl bg-[#111827] p-6 border border-[#374151] transition-all duration-300 hover:border-green-500/50 cursor-pointer">
-              <div className="absolute inset-0 rounded-xl opacity-20 bg-gradient-to-br from-transparent to-green-500/10"></div>
+            <div className="service-card group relative">
               <div className="relative z-10">
                 <span className="text-xs text-[#9CA3AF] mb-2 inline-block">Automation</span>
                 <h3 className="text-xl font-bold text-white mb-3">Automation & CRM</h3>
                 <p className="text-[#9CA3AF] mb-4">Workflow automation and CRM solutions to save time and improve efficiency.</p>
                 <div className="flex items-center text-green-500 text-sm font-medium">
                   Learn more
-                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="arrow ml-1 h-4 w-4" />
                 </div>
               </div>
             </div>
             
             {/* Intelligence / AI Solutions */}
-            <div className="dark-service-card group relative rounded-xl bg-[#111827] p-6 border border-[#374151] transition-all duration-300 hover:border-green-500/50 cursor-pointer">
-              <div className="absolute inset-0 rounded-xl opacity-20 bg-gradient-to-br from-transparent to-green-500/10"></div>
+            <div className="service-card group relative">
               <div className="relative z-10">
                 <span className="text-xs text-[#9CA3AF] mb-2 inline-block">Intelligence</span>
                 <h3 className="text-xl font-bold text-white mb-3">Intelligence / AI Solutions</h3>
                 <p className="text-[#9CA3AF] mb-4">Data-driven intelligence and smart automation solutions.</p>
                 <div className="flex items-center text-green-500 text-sm font-medium">
                   Learn more
-                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="arrow ml-1 h-4 w-4" />
                 </div>
               </div>
             </div>
             
             {/* Design & Transformation */}
-            <div className="dark-service-card group relative rounded-xl bg-[#111827] p-6 border border-[#374151] transition-all duration-300 hover:border-green-500/50 cursor-pointer">
-              <div className="absolute inset-0 rounded-xl opacity-20 bg-gradient-to-br from-transparent to-green-500/10"></div>
+            <div className="service-card group relative">
               <div className="relative z-10">
                 <span className="text-xs text-[#9CA3AF] mb-2 inline-block">Design</span>
                 <h3 className="text-xl font-bold text-white mb-3">Design & Transformation</h3>
                 <p className="text-[#9CA3AF] mb-4">UI/UX design and digital transformation services.</p>
                 <div className="flex items-center text-green-500 text-sm font-medium">
                   Learn more
-                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="arrow ml-1 h-4 w-4" />
                 </div>
               </div>
             </div>
