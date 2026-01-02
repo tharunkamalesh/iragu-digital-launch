@@ -10,15 +10,9 @@ interface LayoutProps {
 export const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="relative min-h-screen flex flex-col bg-[#0B0F14]">
-      {/* Global Infinite Grid Background - visible on all pages */}
-      <InfiniteGrid 
-        className="fixed inset-0 z-0" 
-        cellSize={30} 
-        opacity={0.12} 
-        speed={0.5} 
-      />
+      {/* VANTA.js background is applied to the entire body */}
       <Navbar className="relative z-20" />
-      <main className="relative z-10 flex-1 pt-[73px]">{children}</main>
+      <main className="relative z-20 flex-1 pt-[73px]">{children}</main>
       <Footer className="relative z-20" />
     </div>
   );

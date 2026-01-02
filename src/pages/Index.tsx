@@ -110,7 +110,7 @@ const Index = () => {
   return (
     <Layout>
       {/* ==================== HERO SECTION ==================== */}
-      <section id="hero" ref={heroRef} className="relative overflow-hidden w-full h-screen flex items-center z-10">
+      <section ref={heroRef} className="relative overflow-hidden w-full h-screen flex items-center z-10">
         {/* Content Layer (STATIC) - Higher z-index to appear above the animation */}
         <div className="container-width section-padding relative z-30">
           <div className="mx-auto max-w-4xl text-center relative z-20">
