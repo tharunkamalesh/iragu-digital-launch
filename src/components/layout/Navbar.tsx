@@ -8,7 +8,11 @@ const navLinks = [
   { name: "Services", href: "#services" },
 ];
 
-export const Navbar = () => {
+interface NavbarProps {
+  className?: string;
+}
+
+export const Navbar = ({ className = "" }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const scrollToSection = (href: string) => {
@@ -20,7 +24,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/30 bg-background/70 backdrop-blur-md">
+    <header className={`fixed top-0 left-0 right-0 z-50 border-b border-border/30 bg-background/70 backdrop-blur-md ${className}`}>
       <nav className="container-width section-padding !py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}

@@ -61,6 +61,41 @@
     --sidebar-border: 150 20% 88%;
     --sidebar-ring: 152 55% 38%;
   }
+  
+  .dark {
+    --background: 152 10% 5%;
+    --foreground: 0 0% 98%;
+    --card: 152 10% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 152 10% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 152 60% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 152 10% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 152 10% 12%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 152 10% 15%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 152 10% 18%;
+    --input: 152 10% 18%;
+    --ring: 152 60% 40%;
+    
+    /* Dark theme specific variables for IRAGU */
+    --iragu-bg: #0B0F14;
+    --iragu-surface: #0F172A;
+    --iragu-card: #111827;
+    --iragu-text-primary: #E5E7EB;
+    --iragu-text-secondary: #9CA3AF;
+    --iragu-text-muted: #6B7280;
+    --iragu-green-primary: #22C55E;
+    --iragu-green-soft: #16A34A;
+    --iragu-green-glow: rgba(34, 197, 94, 0.45);
+    --iragu-cta-primary: #F59E0B;
+    --iragu-cta-hover: #D97706;
+  }
 }
 
 @layer base {
@@ -301,5 +336,33 @@
   .team-card-base:hover {
     transform: scale(1.05);
     box-shadow: var(--shadow-elevated);
+  }
+  
+  /* Hero section animations */
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  @keyframes float-medium {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+  }
+  
+  @keyframes float-fast {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-40px); }
+  }
+  
+  .animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+  
+  .animate-float-medium {
+    animation: float-medium 10s ease-in-out infinite;
+  }
+  
+  .animate-float-fast {
+    animation: float-fast 12s ease-in-out infinite;
   }
 }

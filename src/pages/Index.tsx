@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Layout } from "@/components/layout/Layout";
 import RevealSection from "@/components/RevealSection";
 import { Button } from "@/components/ui/button";
@@ -52,6 +52,8 @@ const Index = () => {
     inquiryType: "",
     message: "",
   });
+  
+  const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -108,50 +110,46 @@ const Index = () => {
   return (
     <Layout>
       {/* ==================== HERO SECTION ==================== */}
-      <section id="home" className="relative overflow-hidden bg-gradient-hero min-h-[90vh] flex items-center z-10">
-        {/* Original background elements (kept for additional depth) */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-          <div className="absolute -top-1/2 left-1/2 h-[1000px] w-[1000px] -translate-x-1/2 rounded-full bg-primary/5 blur-3xl opacity-50" />
-          <div className="absolute bottom-0 right-0 h-[600px] w-[600px] rounded-full bg-accent/5 blur-3xl opacity-50" />
-        </div>
-
-        <div className="container-width section-padding relative z-10">
-          <div className="mx-auto max-w-4xl text-center relative z-10">
+      <section id="hero" ref={heroRef} className="relative overflow-hidden w-full h-screen flex items-center z-10">
+        {/* Content Layer (STATIC) - Higher z-index to appear above the animation */}
+        <div className="container-width section-padding relative z-30">
+          <div className="mx-auto max-w-4xl text-center relative z-20">
             <div
-              className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-5 py-2.5 text-sm text-muted-foreground backdrop-blur-sm opacity-0 animate-fade-in"
-              style={{ animationDelay: "0.1s" }}
+              className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#374151] bg-[#111827]/50 px-5 py-2.5 text-sm text-[#9CA3AF] backdrop-blur-sm"
             >
-              <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
+              <span className="h-2 w-2 rounded-full bg-[#22C55E] animate-pulse" />
               IT Solutions Agency
             </div>
 
             <h1
-              className="mb-6 text-3xl font-bold leading-tight tracking-tight text-[#0F172A] opacity-0 animate-fade-in sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
-              style={{ animationDelay: "0.2s" }}
+              className="mb-6 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
             >
-              We Build Digital Solutions That Help Businesses <span style={{color: "#16A34A"}}>Scale Faster</span>
+              We Build Digital Solutions That Help Businesses <span className="text-[#22C55E]">Scale Faster</span>
             </h1>
 
             <p
-              className="mx-auto mb-4 max-w-xl text-base text-[#64748B] opacity-0 animate-fade-in sm:text-lg md:mb-6 md:max-w-2xl md:text-xl"
-              style={{ animationDelay: "0.3s" }}
+              className="mx-auto mb-4 max-w-xl text-base text-[#D1D5DB] sm:text-lg md:mb-6 md:max-w-2xl md:text-xl"
             >
               We help startups and businesses build fast, secure, and scalable digital products.
             </p>
             
             <p
-              className="mx-auto mb-8 max-w-xl text-sm text-[#64748B] opacity-0 animate-fade-in sm:text-base md:mb-12"
-              style={{ animationDelay: "0.35s" }}
+              className="mx-auto mb-8 max-w-xl text-sm text-[#9CA3AF] sm:text-base md:mb-12"
             >
               Free consultation • No obligation • Quick response
             </p>
 
             <div
-              className="flex flex-col items-center justify-center gap-4 opacity-0 animate-fade-in sm:flex-row sm:gap-6"
-              style={{ animationDelay: "0.4s" }}
+              className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6"
             >
+              <a href="#contact">
+                <Button variant="orange-cta" size="lg" className="w-full sm:w-auto min-w-[200px] md:min-w-[220px]">
+                  Contact Us
+                </Button>
+              </a>
+              
               <a href="https://wa.me/9626299568" target="_blank" rel="noopener noreferrer">
-                <Button variant="default" size="lg" className="w-full sm:w-auto min-w-[200px] md:min-w-[220px] bg-[#22C55E] hover:bg-[#16A34A] text-white">
+                <Button variant="green-accent" size="lg" className="w-full sm:w-auto min-w-[200px] md:min-w-[220px]">
                   <MessageCircle className="h-5 w-5" />
                   Chat on WhatsApp
                 </Button>

@@ -9,7 +9,7 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="relative min-h-screen flex flex-col">
+    <div className="relative min-h-screen flex flex-col bg-[#0B0F14]">
       {/* Global Infinite Grid Background - visible on all pages */}
       <InfiniteGrid 
         className="fixed inset-0 z-0" 

@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
 import { Mail, MessageCircle } from "lucide-react";
 
-export const Footer = () => {
+interface FooterProps {
+  className?: string;
+}
+
+export const Footer = ({ className = "" }: FooterProps) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border bg-card">
+    <footer className={`border-t border-border bg-card ${className}`}>
       <div className="container-width section-padding !py-12">
         <div className="grid gap-8 md:grid-cols-3">
           {/* Brand */}

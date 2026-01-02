@@ -17,6 +17,8 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         gradient: "bg-gradient-to-r from-[hsl(30,50%,45%)] to-[hsl(35,60%,55%)] text-white shadow-lg hover:shadow-[0_0_30px_hsl(30_50%_45%/0.4)] hover:scale-[1.02]",
         whatsapp: "bg-[#25D366] text-white hover:bg-[#20BA5C] shadow-lg hover:shadow-[0_0_30px_rgba(37,211,102,0.4)]",
+        "orange-cta": "bg-[#F59E0B] text-white hover:bg-[#D97706] shadow-lg hover:shadow-[0_0_30px_rgba(245,158,11,0.4)]",
+        "green-accent": "bg-[#22C55E] text-white hover:bg-[#16A34A] shadow-lg hover:shadow-[0_0_30px_rgba(34,197,94,0.4)]",
         pill: "rounded-full bg-secondary text-muted-foreground hover:bg-primary hover:text-primary-foreground",
         "pill-active": "rounded-full bg-primary text-primary-foreground",
       },
