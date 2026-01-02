@@ -324,7 +324,7 @@
   .service-card:nth-child(3) { transition-delay: 0.24s; }
   .service-card:nth-child(4) { transition-delay: 0.32s; }
   
-  /* Course-style service card design */
+  /* New course-style service card design */
   .service-card {
     background: #000000;
     border: 1px solid #1f2937;
