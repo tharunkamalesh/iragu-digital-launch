@@ -109,7 +109,23 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    position: relative;
+    z-index: 10;
     overflow-x: hidden; /* Prevent horizontal scroll due to VANTA.js */
+  }
+  
+  #vanta-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+  }
+  
+  main, .app, #root {
+    position: relative;
+    z-index: 10;
   }
 }
 
