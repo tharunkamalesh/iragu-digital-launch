@@ -5,6 +5,7 @@ interface ServiceSlide {
   category: string;
   title: string;
   description: string;
+  image: string;
 }
 
 interface ServiceSliderProps {
@@ -43,11 +44,16 @@ const ServiceSlider = ({ slides }: ServiceSliderProps) => {
             className={slideClass}
           >
             <div className="service-card group relative">
-              <div className="relative z-10">
+              <img 
+                src={slide.image} 
+                alt={slide.title}
+                className="service-card-image"
+              />
+              <div className="service-card-content">
                 <span className="text-xs text-[#9CA3AF] mb-2 inline-block">{slide.category}</span>
                 <h3 className="text-xl font-bold text-white mb-3">{slide.title}</h3>
-                <p className="text-[#9CA3AF] mb-4">{slide.description}</p>
-                <div className="flex items-center text-green-500 text-sm font-medium">
+                <p className="text-[#9CA3AF] mb-4 flex-1">{slide.description}</p>
+                <div className="flex items-center text-green-500 text-sm font-medium learn-more">
                   Learn more
                   <ArrowRight className="arrow ml-1 h-4 w-4" />
                 </div>

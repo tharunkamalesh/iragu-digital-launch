@@ -260,32 +260,38 @@ const Index = () => {
                       { 
                         category: "Development", 
                         title: "Web Development", 
-                        description: "Custom web applications, business websites, e-commerce platforms, and PWAs." 
+                        description: "Custom web applications, business websites, e-commerce platforms, and PWAs.",
+                        image: "/api/placeholder/400/160" 
                       },
                       { 
                         category: "Development", 
                         title: "Mobile Applications", 
-                        description: "Native and cross-platform mobile applications for Android and iOS." 
+                        description: "Native and cross-platform mobile applications for Android and iOS.",
+                        image: "/api/placeholder/400/160" 
                       },
                       { 
                         category: "Infrastructure", 
                         title: "Cloud & DevOps", 
-                        description: "Scalable infrastructure, cloud deployment, and CI/CD pipelines." 
+                        description: "Scalable infrastructure, cloud deployment, and CI/CD pipelines.",
+                        image: "/api/placeholder/400/160" 
                       },
                       { 
                         category: "Automation", 
                         title: "Automation & CRM", 
-                        description: "Workflow automation and CRM solutions to save time and improve efficiency." 
+                        description: "Workflow automation and CRM solutions to save time and improve efficiency.",
+                        image: "/api/placeholder/400/160" 
                       },
                       { 
                         category: "Intelligence", 
                         title: "Intelligence / AI Solutions", 
-                        description: "Data-driven intelligence and smart automation solutions." 
+                        description: "Data-driven intelligence and smart automation solutions.",
+                        image: "/api/placeholder/400/160" 
                       },
                       { 
                         category: "Design", 
                         title: "Design & Transformation", 
-                        description: "UI/UX design and digital transformation services." 
+                        description: "UI/UX design and digital transformation services.",
+                        image: "/api/placeholder/400/160" 
                       }
                     ]}
                   />
