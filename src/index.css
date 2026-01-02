@@ -107,16 +107,16 @@
     scroll-behavior: smooth;
   }
 
-  html, body {
-    background-color: #000000;
+  html, body, #root, .app, main {
+    background-color: #000000 !important;
     @apply text-foreground font-sans antialiased;
     position: relative;
     z-index: 10;
     overflow-x: hidden; /* Prevent horizontal scroll due to VANTA.js */
   }
   
-  section, main, footer, header {
-    background: transparent;
+  section, header, footer, div {
+    background-color: transparent !important;
   }
   
   #vanta-bg {
