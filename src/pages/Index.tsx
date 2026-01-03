@@ -48,37 +48,37 @@ const services = [
     category: "Development", 
     title: "Web Development", 
     description: "Custom web applications, business websites, e-commerce platforms, and PWAs.",
-    image: "/api/placeholder/400/160" 
+    image: "/api/placeholder/400/200?text=Web+Development" 
   },
   { 
     category: "Development", 
     title: "Mobile Applications", 
     description: "Native and cross-platform mobile applications for Android and iOS.",
-    image: "/api/placeholder/400/160" 
+    image: "/api/placeholder/400/200?text=Mobile+Apps" 
   },
   { 
     category: "Infrastructure", 
     title: "Cloud & DevOps", 
     description: "Scalable infrastructure, cloud deployment, and CI/CD pipelines.",
-    image: "/api/placeholder/400/160" 
+    image: "/api/placeholder/400/200?text=Cloud+DevOps" 
   },
   { 
     category: "Automation", 
     title: "Automation & CRM", 
     description: "Workflow automation and CRM solutions to save time and improve efficiency.",
-    image: "/api/placeholder/400/160" 
+    image: "/api/placeholder/400/200?text=Automation" 
   },
   { 
     category: "Intelligence", 
     title: "Intelligence / AI Solutions", 
     description: "Data-driven intelligence and smart automation solutions.",
-    image: "/api/placeholder/400/160" 
+    image: "/api/placeholder/400/200?text=AI+Solutions" 
   },
   { 
     category: "Design", 
     title: "Design & Transformation", 
     description: "UI/UX design and digital transformation services.",
-    image: "/api/placeholder/400/160" 
+    image: "/api/placeholder/400/200?text=Design" 
   }
 ];
 
@@ -94,19 +94,7 @@ const Index = () => {
     message: "",
   });
   
-  // Auto-Sliding Services State
-  const [activeServiceIndex, setActiveServiceIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isPaused) {
-        setActiveServiceIndex(prevIndex => (prevIndex + 1) % services.length);
-      }
-    }, 2000);
-    
-    return () => clearInterval(interval);
-  }, [isPaused]);
+
   
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -344,25 +332,29 @@ const Index = () => {
               End-to-end digital solutions designed to build, scale, and transform businesses.
             </p>
             
-            {/* Auto-Sliding Service Card */}
-            <div className="max-w-2xl mx-auto">
-              <div 
-                className="service-card-auto-slider rounded-xl border border-[#374151] bg-[#0B0F0E] p-6 transition-all duration-300 hover:border-white"
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={() => setIsPaused(false)}
-              >
-                <div className="service-card-image-container">
-                  <img 
-                    src={services[activeServiceIndex].image} 
-                    alt={services[activeServiceIndex].title}
-                    className="w-full h-40 object-cover rounded-lg"
-                  />
+            {/* Service Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {services.map((service, index) => (
+                <div 
+                  key={index}
+                  className="service-card rounded-2xl border border-[#374151] bg-[#0B0F0E] p-6 transition-all duration-300"
+                >
+                  <div className="service-card-image-container mb-4">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-40 object-cover rounded-xl"
+                    />
+                  </div>
+                  <div className="service-card-content">
+                    <h3 className="text-xl font-bold text-white mb-2">{service.title}</h3>
+                    <p className="text-[#D1D5DB] mb-4">{service.description}</p>
+                    <a href="#" className="inline-flex items-center text-[#22C55E] hover:text-[#22C55E]/80 text-sm font-medium">
+                      Learn more <span className="ml-1">→</span>
+                    </a>
+                  </div>
                 </div>
-                <div className="service-card-content mt-4">
-                  <h3 className="text-xl font-bold text-white mb-2">{services[activeServiceIndex].title}</h3>
-                  <p className="text-[#D1D5DB]">{services[activeServiceIndex].description}</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

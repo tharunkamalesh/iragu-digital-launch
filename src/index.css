@@ -146,55 +146,7 @@
     }
   }
   
-  .service-card-auto-slider {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .service-card-auto-slider::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-    transition: none;
-  }
-  
-  .service-card-auto-slider:hover::before {
-    left: 100%;
-  }
-  
-  @keyframes slideInFromRight {
-    from {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes slideOutToLeft {
-    from {
-      transform: translateX(0);
-      opacity: 1;
-    }
-    to {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-  }
-  
-  .service-slide-enter {
-    animation: slideInFromRight 0.5s ease-in-out forwards;
-  }
-  
-  .service-slide-exit {
-    animation: slideOutToLeft 0.5s ease-in-out forwards;
-  }
+
   
   section, header, footer, div {
     background-color: transparent !important;
@@ -222,6 +174,23 @@
     position: relative;
     z-index: 10;
     background-color: #000000;
+  }
+  
+  /* Service Card Styling */
+  .service-card {
+    border-radius: 1rem; /* rounded-2xl */
+    background: #0B0F0E;
+    border: 1px solid #374151;
+    transition: all 0.3s ease;
+  }
+  
+  .service-card:hover {
+    border-color: #ffffff;
+  }
+  
+  .service-card-image-container img {
+    border-radius: 0.75rem; /* rounded-xl */
+    object-fit: cover;
   }
 }
 
