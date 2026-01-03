@@ -113,9 +113,25 @@ const Index = () => {
     <Layout>
       {/* ==================== HERO SECTION ==================== */}
       <section ref={heroRef} className="relative overflow-hidden w-full h-screen flex items-center z-10">
+        {/* Video Background */}
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          style={{ zIndex: 0 }}
+        >
+          <source src="/video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/30 z-10" style={{ zIndex: 1 }}></div>
+        
         {/* Content Layer (STATIC) - Higher z-index to appear above the animation */}
-        <div className="container-width section-padding relative z-30">
-          <div className="mx-auto max-w-4xl text-center relative z-20">
+        <div className="container-width section-padding relative" style={{ zIndex: 10 }}>
+          <div className="mx-auto max-w-4xl text-center relative">
             <div
               className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#374151] bg-[#111827]/50 px-5 py-2.5 text-sm text-[#9CA3AF] backdrop-blur-sm"
             >
