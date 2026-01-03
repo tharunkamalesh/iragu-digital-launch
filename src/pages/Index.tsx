@@ -208,28 +208,54 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ==================== WHY CHOOSE US SECTION ==================== */}
+      {/* ==================== WHY CHOOSE IRAGU SECTION ==================== */}
       <section className="section-padding bg-[#000000] relative z-10">
         <div className="container-width">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white sm:text-4xl">Why Choose IRAGU</h2>
+            <p className="mt-4 text-[#9CA3AF] max-w-2xl mx-auto">We deliver exceptional service with proven expertise and dedication to your success.</p>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {reasons.map((reason) => (
-              <div
-                key={reason.title}
-                className="flex flex-col sm:flex-row items-center sm:items-start gap-4 rounded-none border border-border bg-background/50 p-5 transition-all duration-300 hover:border-primary/30"
-              >
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
-                  <reason.icon className="h-5 w-5 text-white" />
-                </div>
-                <div className="text-center sm:text-left">
-                  <h3 className="mb-1 font-semibold text-foreground">{reason.title}</h3>
-                  <p className="text-sm text-muted-foreground">{reason.description}</p>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="rounded-none border border-[#374151] bg-[#0B0F0E] p-6 text-center transition-all duration-300 hover:border-white hover:-translate-y-1 cursor-default">
+              <div className="flex justify-center mb-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-none bg-gradient-to-br from-primary to-accent">
+                  <span className="text-white font-bold">1</span>
                 </div>
               </div>
-            ))}
+              <h3 className="mb-2 text-lg font-bold text-white">Expert Team</h3>
+              <p className="text-[#9CA3AF] text-sm">Skilled professionals with years of experience in digital solutions.</p>
+            </div>
+            
+            <div className="rounded-none border border-[#374151] bg-[#0B0F0E] p-6 text-center transition-all duration-300 hover:border-white hover:-translate-y-1 cursor-default">
+              <div className="flex justify-center mb-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-none bg-gradient-to-br from-primary to-accent">
+                  <span className="text-white font-bold">2</span>
+                </div>
+              </div>
+              <h3 className="mb-2 text-lg font-bold text-white">Quality Assurance</h3>
+              <p className="text-[#9CA3AF] text-sm">Rigorous testing and quality control for flawless deliverables.</p>
+            </div>
+            
+            <div className="rounded-none border border-[#374151] bg-[#0B0F0E] p-6 text-center transition-all duration-300 hover:border-white hover:-translate-y-1 cursor-default">
+              <div className="flex justify-center mb-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-none bg-gradient-to-br from-primary to-accent">
+                  <span className="text-white font-bold">3</span>
+                </div>
+              </div>
+              <h3 className="mb-2 text-lg font-bold text-white">Timely Delivery</h3>
+              <p className="text-[#9CA3AF] text-sm">We respect deadlines and deliver projects on schedule.</p>
+            </div>
+            
+            <div className="rounded-none border border-[#374151] bg-[#0B0F0E] p-6 text-center transition-all duration-300 hover:border-white hover:-translate-y-1 cursor-default">
+              <div className="flex justify-center mb-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-none bg-gradient-to-br from-primary to-accent">
+                  <span className="text-white font-bold">4</span>
+                </div>
+              </div>
+              <h3 className="mb-2 text-lg font-bold text-white">24/7 Support</h3>
+              <p className="text-[#9CA3AF] text-sm">Round-the-clock assistance for all your technical needs.</p>
+            </div>
           </div>
         </div>
       </section>
