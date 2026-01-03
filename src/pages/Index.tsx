@@ -30,7 +30,6 @@ import {
   Send,
   ExternalLink,
 } from "lucide-react";
-import ServiceSlider from "@/components/ui/ServiceSlider";
 
 
 
@@ -41,6 +40,46 @@ const reasons = [
   { icon: DollarSign, title: "Affordable Pricing", description: "Quality solutions within your budget" },
   { icon: Zap, title: "Fast Delivery", description: "On-time delivery with regular updates" },
   { icon: HeadphonesIcon, title: "Post-Launch Support", description: "We're here even after go-live" },
+];
+
+// Services Data
+const services = [
+  { 
+    category: "Development", 
+    title: "Web Development", 
+    description: "Custom web applications, business websites, e-commerce platforms, and PWAs.",
+    image: "/api/placeholder/400/160" 
+  },
+  { 
+    category: "Development", 
+    title: "Mobile Applications", 
+    description: "Native and cross-platform mobile applications for Android and iOS.",
+    image: "/api/placeholder/400/160" 
+  },
+  { 
+    category: "Infrastructure", 
+    title: "Cloud & DevOps", 
+    description: "Scalable infrastructure, cloud deployment, and CI/CD pipelines.",
+    image: "/api/placeholder/400/160" 
+  },
+  { 
+    category: "Automation", 
+    title: "Automation & CRM", 
+    description: "Workflow automation and CRM solutions to save time and improve efficiency.",
+    image: "/api/placeholder/400/160" 
+  },
+  { 
+    category: "Intelligence", 
+    title: "Intelligence / AI Solutions", 
+    description: "Data-driven intelligence and smart automation solutions.",
+    image: "/api/placeholder/400/160" 
+  },
+  { 
+    category: "Design", 
+    title: "Design & Transformation", 
+    description: "UI/UX design and digital transformation services.",
+    image: "/api/placeholder/400/160" 
+  }
 ];
 
 
@@ -54,6 +93,20 @@ const Index = () => {
     inquiryType: "",
     message: "",
   });
+  
+  // Auto-Sliding Services State
+  const [activeServiceIndex, setActiveServiceIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isPaused) {
+        setActiveServiceIndex(prevIndex => (prevIndex + 1) % services.length);
+      }
+    }, 2000);
+    
+    return () => clearInterval(interval);
+  }, [isPaused]);
   
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -283,81 +336,32 @@ const Index = () => {
       {/* ==================== SERVICES SECTION ==================== */}
       <section id="services" className="section-padding bg-[#000000] relative z-10">
         <div className="container-width">
-          <div className="mb-12">
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
-              {/* Left Column - Service List */}
-              <div className="md:col-span-2">
-                <h2 className="mb-4 text-3xl font-bold text-white">
-                  Services
-                </h2>
-                <p className="mb-8 text-[#9CA3AF]">
-                  End-to-end digital solutions designed to build, scale, and transform businesses.
-                </p>
-                
-                <div className="space-y-4">
-                  <div className="text-[#D1D5DB] py-2 border-l-2 border-[#22C55E] pl-4">
-                    <span className="text-green-500 font-semibold">•</span> Web Development
-                  </div>
-                  <div className="text-[#D1D5DB] py-2 border-l-2 border-[#22C55E] pl-4">
-                    <span className="text-green-500 font-semibold">•</span> Mobile Applications
-                  </div>
-                  <div className="text-[#D1D5DB] py-2 border-l-2 border-[#22C55E] pl-4">
-                    <span className="text-green-500 font-semibold">•</span> Cloud & DevOps
-                  </div>
-                  <div className="text-[#D1D5DB] py-2 border-l-2 border-[#22C55E] pl-4">
-                    <span className="text-green-500 font-semibold">•</span> Automation & CRM
-                  </div>
-                  <div className="text-[#D1D5DB] py-2 border-l-2 border-[#22C55E] pl-4">
-                    <span className="text-green-500 font-semibold">•</span> AI Solutions
-                  </div>
-                  <div className="text-[#D1D5DB] py-2 border-l-2 border-[#22C55E] pl-4">
-                    <span className="text-green-500 font-semibold">•</span> Design & Transformation
-                  </div>
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-white">
+              Our Services
+            </h2>
+            <p className="mb-8 text-[#9CA3AF] max-w-2xl mx-auto">
+              End-to-end digital solutions designed to build, scale, and transform businesses.
+            </p>
+            
+            {/* Auto-Sliding Service Card */}
+            <div className="max-w-2xl mx-auto">
+              <div 
+                className="service-card-auto-slider rounded-xl border border-[#374151] bg-[#0B0F0E] p-6 transition-all duration-300 hover:border-white"
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+              >
+                <div className="service-card-image-container">
+                  <img 
+                    src={services[activeServiceIndex].image} 
+                    alt={services[activeServiceIndex].title}
+                    className="w-full h-40 object-cover rounded-lg"
+                  />
                 </div>
-              </div>
-              
-              {/* Right Column - Service Card Slider */}
-              <div className="md:col-span-3">
-                <ServiceSlider 
-                  slides={[ 
-                    { 
-                      category: "Development", 
-                      title: "Web Development", 
-                      description: "Custom web applications, business websites, e-commerce platforms, and PWAs.",
-                      image: "/api/placeholder/400/160" 
-                    },
-                    { 
-                      category: "Development", 
-                      title: "Mobile Applications", 
-                      description: "Native and cross-platform mobile applications for Android and iOS.",
-                      image: "/api/placeholder/400/160" 
-                    },
-                    { 
-                      category: "Infrastructure", 
-                      title: "Cloud & DevOps", 
-                      description: "Scalable infrastructure, cloud deployment, and CI/CD pipelines.",
-                      image: "/api/placeholder/400/160" 
-                    },
-                    { 
-                      category: "Automation", 
-                      title: "Automation & CRM", 
-                      description: "Workflow automation and CRM solutions to save time and improve efficiency.",
-                      image: "/api/placeholder/400/160" 
-                    },
-                    { 
-                      category: "Intelligence", 
-                      title: "Intelligence / AI Solutions", 
-                      description: "Data-driven intelligence and smart automation solutions.",
-                      image: "/api/placeholder/400/160" 
-                    },
-                    { 
-                      category: "Design", 
-                      title: "Design & Transformation", 
-                      description: "UI/UX design and digital transformation services.",
-                      image: "/api/placeholder/400/160" 
-                    }
-                  ]}
-                />
+                <div className="service-card-content mt-4">
+                  <h3 className="text-xl font-bold text-white mb-2">{services[activeServiceIndex].title}</h3>
+                  <p className="text-[#D1D5DB]">{services[activeServiceIndex].description}</p>
+                </div>
               </div>
             </div>
           </div>
