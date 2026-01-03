@@ -402,39 +402,6 @@
     display: none;
   }
   
-  /* Services slider animation */
-  .service-slider-container {
-    position: relative;
-    overflow: hidden;
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
-  
-  .service-slide {
-    position: absolute;
-    width: 100%;
-    transform: translateX(100%);
-    opacity: 0;
-    transition: transform 0.6s ease, opacity 0.6s ease;
-  }
-  
-  .service-slide.active {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  
-  .service-slide.next {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  
-  .service-slide.hidden {
-    transform: translateX(100%);
-    opacity: 0;
-    display: none;
-  }
-  
   /* Arrow slide effect */
   .service-card .arrow {
     transition: transform 0.3s ease;
