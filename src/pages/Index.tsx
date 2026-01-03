@@ -112,14 +112,14 @@ const Index = () => {
   return (
     <Layout>
       {/* ==================== HERO SECTION ==================== */}
-      <section ref={heroRef} className="relative overflow-hidden w-full h-screen flex items-center z-10">
+      <section ref={heroRef} className="relative overflow-hidden w-full h-screen flex items-center" style={{ zIndex: 5 }}>
         {/* Video Background */}
         <video 
           autoPlay 
           muted 
           loop 
           playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0"
+          className="absolute inset-0 w-full h-full object-cover"
           style={{ zIndex: 0 }}
         >
           <source src="/video.mp4" type="video/mp4" />
@@ -127,7 +127,7 @@ const Index = () => {
         </video>
         
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/30 z-10" style={{ zIndex: 1 }}></div>
+        <div className="absolute inset-0 bg-black/30" style={{ zIndex: 1 }}></div>
         
         {/* Content Layer (STATIC) - Higher z-index to appear above the animation */}
         <div className="container-width section-padding relative" style={{ zIndex: 10 }}>
