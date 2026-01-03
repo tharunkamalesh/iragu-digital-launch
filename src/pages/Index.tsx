@@ -63,12 +63,6 @@ const services = [
     image: "/api/placeholder/400/200?text=Cloud+DevOps" 
   },
   { 
-    category: "Automation", 
-    title: "Automation & CRM", 
-    description: "Workflow automation and CRM solutions to save time and improve efficiency.",
-    image: "/api/placeholder/400/200?text=Automation" 
-  },
-  { 
     category: "Intelligence", 
     title: "Intelligence / AI Solutions", 
     description: "Data-driven intelligence and smart automation solutions.",
@@ -78,7 +72,13 @@ const services = [
     category: "Design", 
     title: "Design & Transformation", 
     description: "UI/UX design and digital transformation services.",
-    image: "/api/placeholder/400/200?text=Design" 
+    image: "/api/placeholder/400/200?text=UI+UX" 
+  },
+  { 
+    category: "Automation", 
+    title: "Automation & CRM", 
+    description: "Workflow automation and CRM solutions to save time and improve efficiency.",
+    image: "/api/placeholder/400/200?text=CRM" 
   }
 ];
 
