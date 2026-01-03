@@ -298,23 +298,14 @@
     justify-content: center;
     align-items: center;
     padding: 1.5rem;
-    border-radius: 0.5rem; /* rounded-md */
-    box-shadow: var(--shadow-card);
-  }
-
-  .flip-card-front {
-    background: white;
-    border: 1px solid hsl(150 20% 88%); /* border-border */
+    border-radius: 0px; /* straight rectangle */
+    border: 1px solid #374151; /* dark gray border */
+    background: #0B0F0E; /* black background */
+    box-shadow: none; /* no shadow */
   }
 
   .flip-card-back {
-    background: hsl(152 55% 38%); /* primary green */
-    color: white;
     transform: rotateY(180deg);
-  }
-
-  .flip-card-back p {
-    color: white;
   }
 
   /* Service Card Animations */

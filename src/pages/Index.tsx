@@ -177,32 +177,52 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ==================== THREE CARDS SECTION (MISSION / OFFERING) ==================== */}
+      {/* ==================== ABOUT IRAGU SECTION ==================== */}
       <section className="section-padding bg-[#000000] relative z-10">
         <div className="container-width">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Mission Card */}
-            <div className="service-card rounded-none border border-[#374151] bg-[#0B0F0E] p-8 text-center transition-all duration-300 hover:border-white hover:shadow-xl hover:-translate-y-1">
-              <h3 className="mb-4 text-xl font-bold text-white">Our Mission</h3>
-              <p className="text-[#D1D5DB]">
-                To empower businesses with innovative digital solutions that drive growth and efficiency.
-              </p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-white sm:text-4xl">About IRAGU</h2>
+            <p className="mt-4 text-[#9CA3AF] max-w-2xl mx-auto">Who we are, what we do, and where we are headed</p>
+          </div>
+          
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {/* About Us Card */}
+            <div className="flip-card rounded-none border border-[#374151] bg-[#0B0F0E] h-64 cursor-pointer transition-all duration-300 hover:border-white hover:-translate-y-1">
+              <div className="flip-card-inner w-full h-full relative transition-transform duration-600 ease-in-out transform-style-preserve-3d">
+                <div className="flip-card-front absolute w-full h-full backface-hidden flex flex-col items-center justify-center p-6">
+                  <h3 className="text-xl font-bold text-white text-center">About Us</h3>
+                </div>
+                <div className="flip-card-back absolute w-full h-full backface-hidden flex flex-col items-center justify-center p-6 bg-[#0B0F0E] rounded-none border border-[#374151]">
+                  <h3 className="text-xl font-bold text-white mb-2 text-center">About Us</h3>
+                  <p className="text-[#D1D5DB] text-center">IRAGU is an IT solutions agency focused on helping startups and businesses build a strong digital presence.</p>
+                </div>
+              </div>
             </div>
             
-            {/* Offering Card */}
-            <div className="service-card rounded-none border border-[#374151] bg-[#0B0F0E] p-8 text-center transition-all duration-300 hover:border-white hover:shadow-xl hover:-translate-y-1">
-              <h3 className="mb-4 text-xl font-bold text-white">Our Offering</h3>
-              <p className="text-[#D1D5DB]">
-                Comprehensive IT services from web development to AI solutions tailored for your business.
-              </p>
+            {/* Our Mission Card */}
+            <div className="flip-card rounded-none border border-[#374151] bg-[#0B0F0E] h-64 cursor-pointer transition-all duration-300 hover:border-white hover:-translate-y-1">
+              <div className="flip-card-inner w-full h-full relative transition-transform duration-600 ease-in-out transform-style-preserve-3d">
+                <div className="flip-card-front absolute w-full h-full backface-hidden flex flex-col items-center justify-center p-6">
+                  <h3 className="text-xl font-bold text-white text-center">Our Mission</h3>
+                </div>
+                <div className="flip-card-back absolute w-full h-full backface-hidden flex flex-col items-center justify-center p-6 bg-[#0B0F0E] rounded-none border border-[#374151]">
+                  <h3 className="text-xl font-bold text-white mb-2 text-center">Our Mission</h3>
+                  <p className="text-[#D1D5DB] text-center">Our mission is to help businesses grow by providing reliable, affordable, and high-quality digital solutions using modern technology and best practices.</p>
+                </div>
+              </div>
             </div>
             
-            {/* Vision Card */}
-            <div className="service-card rounded-none border border-[#374151] bg-[#0B0F0E] p-8 text-center transition-all duration-300 hover:border-white hover:shadow-xl hover:-translate-y-1">
-              <h3 className="mb-4 text-xl font-bold text-white">Our Vision</h3>
-              <p className="text-[#D1D5DB]">
-                To become the leading technology partner for businesses seeking digital transformation.
-              </p>
+            {/* Our Vision Card */}
+            <div className="flip-card rounded-none border border-[#374151] bg-[#0B0F0E] h-64 cursor-pointer transition-all duration-300 hover:border-white hover:-translate-y-1">
+              <div className="flip-card-inner w-full h-full relative transition-transform duration-600 ease-in-out transform-style-preserve-3d">
+                <div className="flip-card-front absolute w-full h-full backface-hidden flex flex-col items-center justify-center p-6">
+                  <h3 className="text-xl font-bold text-white text-center">Our Vision</h3>
+                </div>
+                <div className="flip-card-back absolute w-full h-full backface-hidden flex flex-col items-center justify-center p-6 bg-[#0B0F0E] rounded-none border border-[#374151]">
+                  <h3 className="text-xl font-bold text-white mb-2 text-center">Our Vision</h3>
+                  <p className="text-[#D1D5DB] text-center">Our vision is to become a trusted technology partner for businesses by delivering innovative, scalable, and future-ready digital solutions.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
