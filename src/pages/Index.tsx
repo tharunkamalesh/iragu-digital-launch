@@ -112,7 +112,7 @@ const Index = () => {
   return (
     <Layout>
       {/* ==================== HERO SECTION ==================== */}
-      <section ref={heroRef} className="relative overflow-hidden w-full h-screen flex items-center" style={{ zIndex: 5 }}>
+      <section ref={heroRef} className="relative overflow-hidden w-full min-h-screen flex items-center" style={{ zIndex: 5 }}>
         {/* Video Background */}
         <video 
           autoPlay 
@@ -133,42 +133,42 @@ const Index = () => {
         <div className="container-width section-padding relative" style={{ zIndex: 10 }}>
           <div className="mx-auto max-w-4xl text-center relative">
             <div
-              className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#374151] bg-[#111827]/50 px-5 py-2.5 text-sm text-[#9CA3AF] backdrop-blur-sm"
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#374151] bg-[#111827]/50 px-4 py-2 text-xs sm:text-sm text-[#9CA3AF] backdrop-blur-sm"
             >
               <span className="h-2 w-2 rounded-full bg-[#22C55E] animate-pulse" />
               IT Solutions Agency
             </div>
 
             <h1
-              className="mb-6 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
+              className="mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight text-white"
             >
               We Build Digital Solutions That Help Businesses <span className="text-[#22C55E]">Scale Faster</span>
             </h1>
 
             <p
-              className="mx-auto mb-4 max-w-xl text-base text-[#D1D5DB] sm:text-lg md:mb-6 md:max-w-2xl md:text-xl"
+              className="mx-auto mb-3 max-w-xs sm:max-w-sm md:max-w-md text-sm sm:text-base text-[#D1D5DB]"
             >
               We help startups and businesses build fast, secure, and scalable digital products.
             </p>
             
             <p
-              className="mx-auto mb-8 max-w-xl text-sm text-[#9CA3AF] sm:text-base md:mb-12"
+              className="mx-auto mb-6 max-w-xs sm:max-w-sm md:max-w-md text-xs sm:text-sm text-[#9CA3AF]"
             >
               Free consultation • No obligation • Quick response
             </p>
 
             <div
-              className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6"
+              className="flex flex-col items-center justify-center gap-3 sm:gap-4"
             >
               <a href="#contact">
-                <Button variant="orange-cta" size="lg" className="w-full sm:w-auto min-w-[200px] md:min-w-[220px]">
+                <Button variant="orange-cta" size="lg" className="w-full sm:w-auto min-w-[180px]">
                   Contact Us
                 </Button>
               </a>
               
               <a href="https://wa.me/9626299568" target="_blank" rel="noopener noreferrer">
-                <Button variant="green-accent" size="lg" className="w-full sm:w-auto min-w-[200px] md:min-w-[220px]">
-                  <MessageCircle className="h-5 w-5" />
+                <Button variant="green-accent" size="lg" className="w-full sm:w-auto min-w-[180px]">
+                  <MessageCircle className="h-4 w-4" />
                   Chat on WhatsApp
                 </Button>
               </a>
@@ -180,47 +180,47 @@ const Index = () => {
       {/* ==================== ABOUT IRAGU SECTION ==================== */}
       <section className="section-padding bg-[#000000] relative z-10">
         <div className="container-width">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white sm:text-4xl">About IRAGU</h2>
-            <p className="mt-4 text-[#9CA3AF] max-w-2xl mx-auto">Who we are, what we do, and where we are headed</p>
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">About IRAGU</h2>
+            <p className="mt-3 text-sm sm:text-[#9CA3AF] max-w-xs sm:max-w-md md:max-w-lg mx-auto">Who we are, what we do, and where we are headed</p>
           </div>
           
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:gap-6">
             {/* About Us Card */}
-            <div className="flip-card rounded-none border border-[#374151] bg-[#0B0F0E] h-64 cursor-pointer transition-all duration-300 hover:border-white hover:-translate-y-1">
+            <div className="flip-card rounded-none border border-[#374151] bg-[#0B0F0E] h-56 sm:h-64 cursor-pointer transition-all duration-300 hover:border-white hover:-translate-y-1">
               <div className="flip-card-inner w-full h-full relative transition-transform duration-600 ease-in-out transform-style-preserve-3d">
-                <div className="flip-card-front absolute w-full h-full backface-hidden flex flex-col items-center justify-center p-6">
-                  <h3 className="text-xl font-bold text-white text-center">About Us</h3>
+                <div className="flip-card-front absolute w-full h-full backface-hidden flex flex-col items-center justify-center p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-white text-center">About Us</h3>
                 </div>
-                <div className="flip-card-back absolute w-full h-full backface-hidden flex flex-col items-center justify-center p-6 bg-[#0B0F0E] rounded-none border border-[#374151]">
-                  <h3 className="text-xl font-bold text-white mb-2 text-center">About Us</h3>
-                  <p className="text-[#D1D5DB] text-center">IRAGU is an IT solutions agency focused on helping startups and businesses build a strong digital presence.</p>
+                <div className="flip-card-back absolute w-full h-full backface-hidden flex flex-col items-center justify-center p-4 sm:p-6 bg-[#0B0F0E] rounded-none border border-[#374151]">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2 text-center">About Us</h3>
+                  <p className="text-[#D1D5DB] text-center text-sm sm:text-base">IRAGU is an IT solutions agency focused on helping startups and businesses build a strong digital presence.</p>
                 </div>
               </div>
             </div>
             
             {/* Our Mission Card */}
-            <div className="flip-card rounded-none border border-[#374151] bg-[#0B0F0E] h-64 cursor-pointer transition-all duration-300 hover:border-white hover:-translate-y-1">
+            <div className="flip-card rounded-none border border-[#374151] bg-[#0B0F0E] h-56 sm:h-64 cursor-pointer transition-all duration-300 hover:border-white hover:-translate-y-1">
               <div className="flip-card-inner w-full h-full relative transition-transform duration-600 ease-in-out transform-style-preserve-3d">
-                <div className="flip-card-front absolute w-full h-full backface-hidden flex flex-col items-center justify-center p-6">
-                  <h3 className="text-xl font-bold text-white text-center">Our Mission</h3>
+                <div className="flip-card-front absolute w-full h-full backface-hidden flex flex-col items-center justify-center p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-white text-center">Our Mission</h3>
                 </div>
-                <div className="flip-card-back absolute w-full h-full backface-hidden flex flex-col items-center justify-center p-6 bg-[#0B0F0E] rounded-none border border-[#374151]">
-                  <h3 className="text-xl font-bold text-white mb-2 text-center">Our Mission</h3>
-                  <p className="text-[#D1D5DB] text-center">Our mission is to help businesses grow by providing reliable, affordable, and high-quality digital solutions using modern technology and best practices.</p>
+                <div className="flip-card-back absolute w-full h-full backface-hidden flex flex-col items-center justify-center p-4 sm:p-6 bg-[#0B0F0E] rounded-none border border-[#374151]">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2 text-center">Our Mission</h3>
+                  <p className="text-[#D1D5DB] text-center text-sm sm:text-base">Our mission is to help businesses grow by providing reliable, affordable, and high-quality digital solutions using modern technology and best practices.</p>
                 </div>
               </div>
             </div>
             
             {/* Our Vision Card */}
-            <div className="flip-card rounded-none border border-[#374151] bg-[#0B0F0E] h-64 cursor-pointer transition-all duration-300 hover:border-white hover:-translate-y-1">
+            <div className="flip-card rounded-none border border-[#374151] bg-[#0B0F0E] h-56 sm:h-64 cursor-pointer transition-all duration-300 hover:border-white hover:-translate-y-1">
               <div className="flip-card-inner w-full h-full relative transition-transform duration-600 ease-in-out transform-style-preserve-3d">
-                <div className="flip-card-front absolute w-full h-full backface-hidden flex flex-col items-center justify-center p-6">
-                  <h3 className="text-xl font-bold text-white text-center">Our Vision</h3>
+                <div className="flip-card-front absolute w-full h-full backface-hidden flex flex-col items-center justify-center p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-white text-center">Our Vision</h3>
                 </div>
-                <div className="flip-card-back absolute w-full h-full backface-hidden flex flex-col items-center justify-center p-6 bg-[#0B0F0E] rounded-none border border-[#374151]">
-                  <h3 className="text-xl font-bold text-white mb-2 text-center">Our Vision</h3>
-                  <p className="text-[#D1D5DB] text-center">Our vision is to become a trusted technology partner for businesses by delivering innovative, scalable, and future-ready digital solutions.</p>
+                <div className="flip-card-back absolute w-full h-full backface-hidden flex flex-col items-center justify-center p-4 sm:p-6 bg-[#0B0F0E] rounded-none border border-[#374151]">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2 text-center">Our Vision</h3>
+                  <p className="text-[#D1D5DB] text-center text-sm sm:text-base">Our vision is to become a trusted technology partner for businesses by delivering innovative, scalable, and future-ready digital solutions.</p>
                 </div>
               </div>
             </div>
@@ -283,41 +283,119 @@ const Index = () => {
       {/* ==================== SERVICES SECTION ==================== */}
       <section id="services" className="section-padding bg-[#000000] relative z-10">
         <div className="container-width">
-          <div className="mb-12">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-              {/* Left Column - Service List */}
-              <div className="lg:col-span-2">
-                <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
+          <div className="mb-10 sm:mb-12">
+            <div className="grid grid-cols-1 gap-8 sm:gap-10">
+              {/* Mobile: Service List First */}
+              <div className="sm:hidden">
+                <h2 className="mb-3 text-2xl font-bold text-white">
                   Services
                 </h2>
-                <p className="mb-8 text-[#9CA3AF]">
+                <p className="mb-6 text-sm text-[#9CA3AF]">
                   End-to-end digital solutions designed to build, scale, and transform businesses.
                 </p>
                 
-                <div className="space-y-4">
-                  <div className="text-[#D1D5DB] py-2 border-l-2 border-[#22C55E] pl-4">
+                <div className="space-y-3">
+                  <div className="text-[#D1D5DB] py-1.5 text-sm border-l-2 border-[#22C55E] pl-3">
                     <span className="text-green-500 font-semibold">•</span> Web Development
                   </div>
-                  <div className="text-[#D1D5DB] py-2 border-l-2 border-[#22C55E] pl-4">
+                  <div className="text-[#D1D5DB] py-1.5 text-sm border-l-2 border-[#22C55E] pl-3">
                     <span className="text-green-500 font-semibold">•</span> Mobile Applications
                   </div>
-                  <div className="text-[#D1D5DB] py-2 border-l-2 border-[#22C55E] pl-4">
+                  <div className="text-[#D1D5DB] py-1.5 text-sm border-l-2 border-[#22C55E] pl-3">
                     <span className="text-green-500 font-semibold">•</span> Cloud & DevOps
                   </div>
-                  <div className="text-[#D1D5DB] py-2 border-l-2 border-[#22C55E] pl-4">
+                  <div className="text-[#D1D5DB] py-1.5 text-sm border-l-2 border-[#22C55E] pl-3">
                     <span className="text-green-500 font-semibold">•</span> Automation & CRM
                   </div>
-                  <div className="text-[#D1D5DB] py-2 border-l-2 border-[#22C55E] pl-4">
+                  <div className="text-[#D1D5DB] py-1.5 text-sm border-l-2 border-[#22C55E] pl-3">
                     <span className="text-green-500 font-semibold">•</span> AI Solutions
                   </div>
-                  <div className="text-[#D1D5DB] py-2 border-l-2 border-[#22C55E] pl-4">
+                  <div className="text-[#D1D5DB] py-1.5 text-sm border-l-2 border-[#22C55E] pl-3">
                     <span className="text-green-500 font-semibold">•</span> Design & Transformation
                   </div>
                 </div>
               </div>
               
-              {/* Right Column - Service Card Slider */}
-              <div className="lg:col-span-3">
+              {/* Desktop: Two Column Layout */}
+              <div className="hidden sm:grid sm:grid-cols-5 gap-8">
+                {/* Left Column - Service List */}
+                <div className="sm:col-span-2">
+                  <h2 className="mb-3 text-2xl font-bold text-white sm:text-3xl">
+                    Services
+                  </h2>
+                  <p className="mb-6 text-sm text-[#9CA3AF]">
+                    End-to-end digital solutions designed to build, scale, and transform businesses.
+                  </p>
+                  
+                  <div className="space-y-3">
+                    <div className="text-[#D1D5DB] py-1.5 text-sm border-l-2 border-[#22C55E] pl-3">
+                      <span className="text-green-500 font-semibold">•</span> Web Development
+                    </div>
+                    <div className="text-[#D1D5DB] py-1.5 text-sm border-l-2 border-[#22C55E] pl-3">
+                      <span className="text-green-500 font-semibold">•</span> Mobile Applications
+                    </div>
+                    <div className="text-[#D1D5DB] py-1.5 text-sm border-l-2 border-[#22C55E] pl-3">
+                      <span className="text-green-500 font-semibold">•</span> Cloud & DevOps
+                    </div>
+                    <div className="text-[#D1D5DB] py-1.5 text-sm border-l-2 border-[#22C55E] pl-3">
+                      <span className="text-green-500 font-semibold">•</span> Automation & CRM
+                    </div>
+                    <div className="text-[#D1D5DB] py-1.5 text-sm border-l-2 border-[#22C55E] pl-3">
+                      <span className="text-green-500 font-semibold">•</span> AI Solutions
+                    </div>
+                    <div className="text-[#D1D5DB] py-1.5 text-sm border-l-2 border-[#22C55E] pl-3">
+                      <span className="text-green-500 font-semibold">•</span> Design & Transformation
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Right Column - Service Card Slider */}
+                <div className="sm:col-span-3">
+                  <ServiceSlider 
+                    slides={[ 
+                      { 
+                        category: "Development", 
+                        title: "Web Development", 
+                        description: "Custom web applications, business websites, e-commerce platforms, and PWAs.",
+                        image: "/api/placeholder/400/160" 
+                      },
+                      { 
+                        category: "Development", 
+                        title: "Mobile Applications", 
+                        description: "Native and cross-platform mobile applications for Android and iOS.",
+                        image: "/api/placeholder/400/160" 
+                      },
+                      { 
+                        category: "Infrastructure", 
+                        title: "Cloud & DevOps", 
+                        description: "Scalable infrastructure, cloud deployment, and CI/CD pipelines.",
+                        image: "/api/placeholder/400/160" 
+                      },
+                      { 
+                        category: "Automation", 
+                        title: "Automation & CRM", 
+                        description: "Workflow automation and CRM solutions to save time and improve efficiency.",
+                        image: "/api/placeholder/400/160" 
+                      },
+                      { 
+                        category: "Intelligence", 
+                        title: "Intelligence / AI Solutions", 
+                        description: "Data-driven intelligence and smart automation solutions.",
+                        image: "/api/placeholder/400/160" 
+                      },
+                      { 
+                        category: "Design", 
+                        title: "Design & Transformation", 
+                        description: "UI/UX design and digital transformation services.",
+                        image: "/api/placeholder/400/160" 
+                      }
+                    ]}
+                  />
+                </div>
+              </div>
+              
+              {/* Mobile: Service Card Slider Below */}
+              <div className="sm:hidden">
                 <ServiceSlider 
                   slides={[ 
                     { 
@@ -367,48 +445,48 @@ const Index = () => {
       {/* ==================== OUR TEAM SECTION ==================== */}
       <section className="section-padding bg-[#000000] relative z-10">
         <div className="container-width">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white sm:text-4xl">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">
               Our Team
             </h2>
-            <p className="mx-auto max-w-2xl text-[#9CA3AF]">The people behind IRAGU who turn ideas into digital solutions</p>
+            <p className="mx-auto max-w-xs sm:max-w-md text-sm text-[#9CA3AF]">The people behind IRAGU who turn ideas into digital solutions</p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 gap-4 sm:gap-6">
             {/* Team Member 1 */}
-            <div className="team-card rounded-none border border-[#374151] bg-[#0B0F0E] p-6 text-center transition-all duration-300 hover:border-white flex flex-col items-center">
-              <div className="flex h-20 w-20 items-center justify-center rounded-none bg-gradient-to-br from-primary to-accent text-white text-xl font-bold mb-4">
+            <div className="team-card rounded-none border border-[#374151] bg-[#0B0F0E] p-4 sm:p-6 text-center transition-all duration-300 hover:border-white flex flex-col items-center">
+              <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-none bg-gradient-to-br from-primary to-accent text-white text-lg sm:text-xl font-bold mb-3 sm:mb-4">
                 D
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-1">Dharshan</h3>
-              <p className="text-sm text-[#9CA3AF]">Software Engineer / Developer</p>
+              <h3 className="text-base sm:text-lg font-bold text-foreground mb-1">Dharshan</h3>
+              <p className="text-xs sm:text-sm text-[#9CA3AF]">Software Engineer / Developer</p>
             </div>
             
             {/* Team Member 2 */}
-            <div className="team-card rounded-none border border-[#374151] bg-[#0B0F0E] p-6 text-center transition-all duration-300 hover:border-white flex flex-col items-center">
-              <div className="flex h-20 w-20 items-center justify-center rounded-none bg-gradient-to-br from-primary to-accent text-white text-xl font-bold mb-4">
+            <div className="team-card rounded-none border border-[#374151] bg-[#0B0F0E] p-4 sm:p-6 text-center transition-all duration-300 hover:border-white flex flex-col items-center">
+              <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-none bg-gradient-to-br from-primary to-accent text-white text-lg sm:text-xl font-bold mb-3 sm:mb-4">
                 TK
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-1">Tharun Kamalesh</h3>
-              <p className="text-sm text-[#9CA3AF]">Software Engineer / Developer</p>
+              <h3 className="text-base sm:text-lg font-bold text-foreground mb-1">Tharun Kamalesh</h3>
+              <p className="text-xs sm:text-sm text-[#9CA3AF]">Software Engineer / Developer</p>
             </div>
             
             {/* Team Member 3 */}
-            <div className="team-card rounded-none border border-[#374151] bg-[#0B0F0E] p-6 text-center transition-all duration-300 hover:border-white flex flex-col items-center">
-              <div className="flex h-20 w-20 items-center justify-center rounded-none bg-gradient-to-br from-primary to-accent text-white text-xl font-bold mb-4">
+            <div className="team-card rounded-none border border-[#374151] bg-[#0B0F0E] p-4 sm:p-6 text-center transition-all duration-300 hover:border-white flex flex-col items-center">
+              <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-none bg-gradient-to-br from-primary to-accent text-white text-lg sm:text-xl font-bold mb-3 sm:mb-4">
                 S
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-1">Sharvesh</h3>
-              <p className="text-sm text-[#9CA3AF]">Software Engineer / Developer</p>
+              <h3 className="text-base sm:text-lg font-bold text-foreground mb-1">Sharvesh</h3>
+              <p className="text-xs sm:text-sm text-[#9CA3AF]">Software Engineer / Developer</p>
             </div>
             
             {/* Team Member 4 */}
-            <div className="team-card rounded-none border border-[#374151] bg-[#0B0F0E] p-6 text-center transition-all duration-300 hover:border-white flex flex-col items-center">
-              <div className="flex h-20 w-20 items-center justify-center rounded-none bg-gradient-to-br from-primary to-accent text-white text-xl font-bold mb-4">
+            <div className="team-card rounded-none border border-[#374151] bg-[#0B0F0E] p-4 sm:p-6 text-center transition-all duration-300 hover:border-white flex flex-col items-center">
+              <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-none bg-gradient-to-br from-primary to-accent text-white text-lg sm:text-xl font-bold mb-3 sm:mb-4">
                 Sr
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-1">Sridhar</h3>
-              <p className="text-sm text-[#9CA3AF]">Software Engineer / Developer</p>
+              <h3 className="text-base sm:text-lg font-bold text-foreground mb-1">Sridhar</h3>
+              <p className="text-xs sm:text-sm text-[#9CA3AF]">Software Engineer / Developer</p>
             </div>
           </div>
         </div>
@@ -417,47 +495,47 @@ const Index = () => {
       {/* ==================== CONTACT SECTION ==================== */}
       <section id="contact" className="section-padding bg-[#000000] relative z-10">
         <div className="container-width">
-          <div className="mx-auto max-w-2xl">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-white sm:text-4xl mb-3">Get in Touch</h2>
-              <p className="text-[#9CA3AF]">We are here to help you transform your business with intelligent IT solutions.</p>
+          <div className="mx-auto max-w-xs sm:max-w-md lg:max-w-2xl">
+            <div className="text-center mb-6 sm:mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">Get in Touch</h2>
+              <p className="text-sm text-[#9CA3AF]">We are here to help you transform your business with intelligent IT solutions.</p>
             </div>
             
             {/* Contact Info Cards */}
-            <div className="grid grid-cols-1 gap-4 mb-6 sm:grid-cols-2 sm:mb-8">
+            <div className="grid grid-cols-1 gap-3 sm:gap-4 mb-4 sm:mb-6">
               <a
                 href="mailto:hello@iragu.com"
-                className="flex flex-col sm:flex-row items-center sm:items-start gap-4 rounded-none border border-border bg-card p-4 sm:p-5 transition-all hover:border-primary/30"
+                className="flex flex-col items-center sm:flex-row sm:items-start gap-3 sm:gap-4 rounded-none border border-border bg-card p-3 sm:p-4 transition-all hover:border-primary/30"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-none bg-primary/20">
-                  <Mail className="h-5 w-5 text-primary" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-none bg-primary/20">
+                  <Mail className="h-4 w-4 text-primary" />
                 </div>
                 <div className="text-center sm:text-left">
-                  <p className="text-sm text-[#9CA3AF]">Email Support</p>
-                  <p className="font-semibold text-foreground">hello@iragu.com</p>
+                  <p className="text-xs sm:text-sm text-[#9CA3AF]">Email Support</p>
+                  <p className="font-semibold text-foreground text-sm">hello@iragu.com</p>
                 </div>
               </a>
               <a
                 href="tel:+15550123456"
-                className="flex flex-col sm:flex-row items-center sm:items-start gap-4 rounded-none border border-border bg-card p-4 sm:p-5 transition-all hover:border-primary/30"
+                className="flex flex-col items-center sm:flex-row sm:items-start gap-3 sm:gap-4 rounded-none border border-border bg-card p-3 sm:p-4 transition-all hover:border-primary/30"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-none bg-accent/20">
-                  <Phone className="h-5 w-5 text-accent" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-none bg-accent/20">
+                  <Phone className="h-4 w-4 text-accent" />
                 </div>
                 <div className="text-center sm:text-left">
-                  <p className="text-sm text-[#9CA3AF]">Call Us</p>
-                  <p className="font-semibold text-foreground">+1 (555) 012-3456</p>
+                  <p className="text-xs sm:text-sm text-[#9CA3AF]">Call Us</p>
+                  <p className="font-semibold text-foreground text-sm">+1 (555) 012-3456</p>
                 </div>
               </a>
             </div>
 
             {/* WhatsApp CTA */}
-            <div className="rounded-none border border-[#25D366]/30 bg-[#25D366]/10 p-4 sm:p-6 text-center mb-6">
-              <h3 className="mb-2 text-base sm:text-lg font-semibold text-foreground">Prefer a Quick Chat?</h3>
-              <p className="mb-3 sm:mb-4 text-sm text-[#9CA3AF]">Get in touch with us on WhatsApp for instant responses.</p>
+            <div className="rounded-none border border-[#25D366]/30 bg-[#25D366]/10 p-3 sm:p-4 text-center mb-4 sm:mb-6">
+              <h3 className="mb-2 text-sm sm:text-base font-semibold text-foreground">Prefer a Quick Chat?</h3>
+              <p className="mb-2 sm:mb-3 text-xs sm:text-sm text-[#9CA3AF]">Get in touch with us on WhatsApp for instant responses.</p>
               <a href="https://wa.me/9626299568" target="_blank" rel="noopener noreferrer">
-                <Button variant="whatsapp" size="lg" className="w-full sm:w-auto">
-                  <MessageCircle className="h-5 w-5" />
+                <Button variant="whatsapp" size="lg" className="w-full">
+                  <MessageCircle className="h-4 w-4" />
                   Chat on WhatsApp
                 </Button>
               </a>
